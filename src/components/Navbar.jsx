@@ -22,7 +22,7 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <ul className="nav-links">
-          {['Work', 'Certificates', 'Skills', 'About', 'Contact'].map(l => (
+          {['Work', 'Experience', 'Certificates', 'Skills', 'About', 'Contact'].map(l => (
             <li key={l}>
               <Link to={l.toLowerCase()} smooth duration={700} offset={-80} spy activeClass="active">
                 {l}
@@ -48,7 +48,7 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-        {['Work', 'Certificates', 'Skills', 'About', 'Contact'].map(l => (
+        {['Work', 'Experience', 'Certificates', 'Skills', 'About', 'Contact'].map(l => (
           <Link key={l} to={l.toLowerCase()} smooth duration={700} offset={-80}
             onClick={() => setMenuOpen(false)}>
             {l}

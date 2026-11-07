@@ -6,6 +6,13 @@ import './Contact.css'
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [status, setStatus] = useState(null)
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText('nayaksubham551@gmail.com')
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
@@ -31,9 +38,19 @@ export default function Contact() {
           </h2>
 
           <div className="contact-meta">
-            <a href="mailto:nayaksubham551@gmail.com" className="contact-email">
-              <FaEnvelope className="contact-icon" /> nayaksubham551@gmail.com
-            </a>
+            <div className="contact-email-row">
+              <a href="mailto:nayaksubham551@gmail.com" className="contact-email">
+                <FaEnvelope className="contact-icon" /> nayaksubham551@gmail.com
+              </a>
+              <button
+                type="button"
+                className={`contact-copy-btn ${copied ? 'copied' : ''}`}
+                onClick={handleCopy}
+                title="Copy email to clipboard"
+              >
+                {copied ? '✓ Copied!' : 'Copy'}
+              </button>
+            </div>
             <div className="contact-location">
               <FaMapMarkerAlt className="contact-icon" /> Odisha, India 🇮🇳 · Open to Remote &amp; On-Site
             </div>

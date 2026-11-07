@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-scroll'
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload } from 'react-icons/fa'
 import { SiVercel } from 'react-icons/si'
 import './Hero.css'
 
@@ -48,6 +48,9 @@ export default function Hero() {
           </p>
 
           <div className="hero-social-strip">
+            <a href="/resume.pdf" download="Subham_Kumar_Nayak_Resume.pdf" className="hero-resume-btn" title="Download Resume PDF">
+              <FaFileDownload /> <span>Resume (PDF)</span>
+            </a>
             <a href="https://github.com/subham7815" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub Profile">
               <FaGithub /> <span>subham7815</span>
             </a>

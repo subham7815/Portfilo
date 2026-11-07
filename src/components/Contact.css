@@ -26,6 +26,13 @@
   gap: 16px;
 }
 
+.contact-email-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .contact-email {
   display: inline-flex;
   align-items: center;
@@ -36,6 +43,32 @@
   transition: color 0.2s;
 }
 .contact-email:hover { color: #38bdf8; }
+
+.contact-copy-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contact-copy-btn:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+  color: #fff;
+}
+
+.contact-copy-btn.copied {
+  background: #10b981;
+  border-color: #10b981;
+  color: #042017;
+  font-weight: 700;
+}
 
 .contact-location {
   display: inline-flex;
