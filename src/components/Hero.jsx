@@ -4,9 +4,10 @@ import { Rotator, CountUp } from './motion'
 import { Starburst, Scribble, Arrow, Sparkle } from './Doodles'
 import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload } from 'react-icons/fa'
 import {
-  SiVercel, SiPython, SiReact, SiNextdotjs, SiNodedotjs, SiTypescript, SiPytorch,
-  SiMongodb, SiPostgresql, SiTailwindcss, SiFastapi, SiGit, SiJavascript, SiCplusplus
+  SiPython, SiReact, SiPytorch, SiMongodb, SiMysql, SiFastapi, SiGit, SiGithub, SiJavascript, SiCplusplus, SiPandas, SiHtml5,
 } from 'react-icons/si'
+import { FaJava } from 'react-icons/fa'
+import { VscVscode } from 'react-icons/vsc'
 import './Hero.css'
 
 const ROLES = ['Full-Stack Developer', 'AI / Document AI Engineer', 'ServiceNow CSA & CAD', 'Problem Solver']
@@ -19,9 +20,9 @@ const STATS = [
 ]
 
 const TECH = [
-  [SiPython, '#3776AB'], [SiReact, '#61DAFB'], [SiNextdotjs, '#ffffff'], [SiNodedotjs, '#5FA04E'],
-  [SiTypescript, '#3178C6'], [SiPytorch, '#EE4C2C'], [SiMongodb, '#47A248'], [SiPostgresql, '#4A90D9'],
-  [SiTailwindcss, '#38BDF8'], [SiFastapi, '#05998B'], [SiGit, '#F05032'], [SiJavascript, '#F7DF1E'], [SiCplusplus, '#5C9CE8'],
+  [FaJava, '#ED8B00'], [SiPython, '#3776AB'], [SiCplusplus, '#5C9CE8'], [SiJavascript, '#F7DF1E'], [SiReact, '#61DAFB'],
+  [SiFastapi, '#05998B'], [SiHtml5, '#E34F26'], [SiPytorch, '#EE4C2C'], [SiPandas, '#E70488'], [SiMysql, '#4A90D9'],
+  [SiMongodb, '#47A248'], [SiGit, '#F05032'], [SiGithub, '#ffffff'], [VscVscode, '#3aa0ff'],
 ]
 
 export default function Hero() {
@@ -66,12 +67,12 @@ export default function Hero() {
           </div>
 
           <div className="hero-social-strip">
-            <a href="/resume.pdf" download="Subham_Kumar_Nayak_Resume.pdf" className="hero-resume-btn" title="Download Resume PDF">
+            <a href="/Subham_Kumar_Nayak_Resume.pdf" download="Subham_Kumar_Nayak_Resume.pdf" className="hero-resume-btn" title="Download Resume PDF">
               <FaFileDownload /> <span>Resume</span>
             </a>
             <a href="https://github.com/subham7815" target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub /> <span>subham7815</span></a>
             <a href="https://www.linkedin.com/in/subham7815/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin /> <span>LinkedIn</span></a>
-            <a href="https://vercel.com/shubhams-projects-369a9342" target="_blank" rel="noreferrer" aria-label="Vercel"><SiVercel /> <span>Vercel</span></a>
+            <a href="https://vercel.com/shubhams-projects-369a9342" target="_blank" rel="noreferrer" aria-label="Vercel"><SiGithub /> <span>Repos</span></a>
             <a href="mailto:nayaksubham551@gmail.com" aria-label="Email"><FaEnvelope /> <span>Email</span></a>
           </div>
         </div>

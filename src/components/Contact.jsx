@@ -68,7 +68,7 @@ export default function Contact() {
               </button>
             </div>
             <div className="contact-location">
-              <FaMapMarkerAlt className="contact-icon" /> Odisha, India 🇮🇳 · Open to Remote &amp; On-Site
+              <FaMapMarkerAlt className="contact-icon" /> Odisha, India · Open to Remote &amp; On-Site
             </div>
             <p className="contact-note">
               Available for software engineering roles, Document AI/OCR research initiatives, and ServiceNow enterprise implementations.

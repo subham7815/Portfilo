@@ -71,7 +71,7 @@ const FOCUS = [
 const BRING = [
   { icon: '🤖', title: 'AI that is validated', text: 'Experience benchmarking OCR/VLM output against real financial documents.' },
   { icon: '🏢', title: 'Enterprise-ready', text: 'ServiceNow CSA & CAD: forms, flows, scripts and ACL security.' },
-  { icon: '⚡', title: 'Full-stack delivery', text: 'React, Node and Next.js apps shipped end to end.' },
+  { icon: '⚡', title: 'Full-stack delivery', text: 'React and FastAPI apps with MySQL / MongoDB, shipped end to end.' },
 ]
 
 export default function Experience() {

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Reveal, Stagger, Item, CountUp } from './motion'
 import './About.css'
@@ -10,6 +11,16 @@ const JOURNEY = [
   { year: '2026', title: 'Oracle Agentic AI', text: 'Certified in Agentic AI Foundations; graduated with CGPA 7.6.', color: 'var(--amber)' },
 ]
 const INTERESTS = ['Document AI', 'Agentic AI', 'Full-Stack Web', 'Enterprise Automation', 'Linux & Systems', 'UI Motion', 'Open Source']
+const EDUCATION = [
+  { year: '2026', title: 'B.Tech, Computer Science and Engineering', place: "Siksha 'O' Anusandhan University, Bhubaneswar", note: 'CGPA 7.6', image: '/certificates/soa-university.svg' },
+  { year: '2022', title: 'Higher Secondary Certificate', place: 'Deepika English Medium School', note: 'Completed 2022', image: null },
+]
+const ABOUT_CERTS = [
+  { img: '/certificates/oracle-agentic-ai.jpg', label: 'Oracle Agentic AI' },
+  { img: '/certificates/servicenow-csa.jpg', label: 'ServiceNow CSA' },
+  { img: '/certificates/servicenow-cad.jpg', label: 'ServiceNow CAD' },
+  { img: '/certificates/infosys-data-science.jpg', label: 'Infosys Data Science' },
+]
 const QUICK = [
   ['Location', 'Odisha, India'],
   ['Degree', 'B.Tech CSE (2022-2026)'],
@@ -84,7 +95,7 @@ export default function About() {
           </div>
 
           <div className="about-links">
-            <a href="/resume.pdf" download="Subham_Kumar_Nayak_Resume.pdf" className="about-link highlight">
+            <a href="/Subham_Kumar_Nayak_Resume.pdf" download="Subham_Kumar_Nayak_Resume.pdf" className="about-link highlight">
               📥 Download Resume (PDF) ↗
             </a>
             <a href="https://github.com/subham7815" target="_blank" rel="noreferrer" className="about-link">
@@ -114,6 +125,23 @@ export default function About() {
           ))}
         </Stagger>
 
+        <Reveal className="edu-block">
+          <span className="label">EDUCATION</span>
+          <div className="edu-grid">
+            {EDUCATION.map(e => (
+              <div className="edu-card" key={e.title}>
+                {e.image && <img src={e.image} alt="" loading="lazy" decoding="async" />}
+                <div>
+                  <span className="pill solid">{e.year}</span>
+                  <h4>{e.title}</h4>
+                  <p>{e.place}</p>
+                  <em>{e.note}</em>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
         <Reveal className="quick-facts">
           <span className="label">QUICK FACTS</span>
           <dl className="quick-grid">
@@ -121,6 +149,18 @@ export default function About() {
               <div className="quick-row" key={k}><dt>{k}</dt><dd>{v}</dd></div>
             ))}
           </dl>
+        </Reveal>
+
+        <Reveal className="about-certs">
+          <span className="label">CREDENTIALS</span>
+          <div className="about-cert-grid">
+            {ABOUT_CERTS.map((c, i) => (
+              <Link to="/certificates" key={c.label} className={`about-cert r${i % 4}`}>
+                <img src={c.img} alt={`${c.label} certificate`} loading="lazy" decoding="async" />
+                <span>{c.label}</span>
+              </Link>
+            ))}
+          </div>
         </Reveal>
 
         <Reveal className="interests">

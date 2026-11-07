@@ -99,7 +99,7 @@ img, video { max-width: 100%; display: block; }
   margin: -20px 0 0 -20px;
   opacity: 0.35;
 }
-@media (hover: none), (pointer: coarse) { #cursor { display: none; } }
+@media not all and (hover: hover) and (pointer: fine) { #cursor { display: none; } }
 
 /* ── Section base ── */
 section { padding: 140px 0; }

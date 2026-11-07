@@ -5,7 +5,7 @@ export default function Cursor() {
   const cursorRef = useRef(null)
 
   useEffect(() => {
-    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
     const el = cursorRef.current
     let x = 0, y = 0, raf = 0
 

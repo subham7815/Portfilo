@@ -50,7 +50,7 @@ export const projects = [
     category: 'Systems & C++ · 2025-2026',
     description: 'Console-based Linux file explorer featuring dual-mode navigation (Normal/Command), live regex search, and low-level Linux syscalls for terminal operations.',
     tags: ['C++', 'Linux Syscalls', 'OOP', 'Terminal UI'],
-    image: '/projects/file-explorer.png',
+    image: '/projects/file-explorer.svg',
     liveUrl: 'https://file-explorer-application-five.vercel.app',
     githubUrl: 'https://github.com/subham7815/File-Explorer-Application',
     accent: '#f59e0b',

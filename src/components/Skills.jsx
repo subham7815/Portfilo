@@ -1,18 +1,15 @@
+import { Link } from 'react-router-dom'
 import {
-  SiPython, SiCplusplus, SiJavascript, SiTypescript,
-  SiPytorch, SiOpencv, SiPandas,
-  SiReact, SiNextdotjs, SiHtml5, SiTailwindcss,
-  SiNodedotjs, SiExpress, SiFastapi,
-  SiMysql, SiMongodb, SiPostgresql,
-  SiGit, SiGithub, SiVercel, SiVitest
+  SiPython, SiCplusplus, SiJavascript, SiPytorch, SiPandas, SiReact, SiHtml5,
+  SiFastapi, SiMysql, SiMongodb, SiGit, SiGithub, SiVitest,
 } from 'react-icons/si'
 import {
-  FaJava, FaCss3Alt, FaBrain, FaEye, FaNetworkWired,
-  FaChartBar, FaVial, FaCheckDouble, FaLayerGroup
+  FaJava, FaCss3Alt, FaBrain, FaEye, FaLayerGroup, FaFileExport, FaCheckDouble,
+  FaVial, FaCogs, FaBug, FaComments, FaUsers, FaSyncAlt, FaBolt, FaClock, FaPuzzlePiece, FaArrowRight,
 } from 'react-icons/fa'
 import { VscVscode } from 'react-icons/vsc'
-import { motion } from 'framer-motion'
 import { Reveal, Stagger, Item } from './motion'
+import { Squiggle, Clip, Starburst } from './Doodles'
 import './Skills.css'
 
 // Custom official ServiceNow Logo SVG component
@@ -24,85 +21,98 @@ function ServiceNowLogo({ className }) {
   )
 }
 
+/* ---------------------------------------------------------------
+   Skills exactly as listed on the resume (technical + soft).
+   Edit here to change what the Skills page shows.
+---------------------------------------------------------------- */
 const skillCategories = [
   {
-    category: 'Programming Languages',
-    description: 'Core languages for systems, algorithms, and application development',
+    category: 'Languages',
+    description: 'Core languages for application development, algorithms and systems work',
     skills: [
-      { name: 'Python', icon: <SiPython />, color: '#3776AB', level: 'Advanced', note: 'AI/ML & Automation' },
-      { name: 'Java', icon: <FaJava />, color: '#ED8B00', level: 'Proficient', note: 'OOP & Architecture' },
-      { name: 'C++', icon: <SiCplusplus />, color: '#00599C', level: 'Proficient', note: 'Linux Systems & DSA' },
-      { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E', level: 'Advanced', note: 'ES2024+ Full-Stack' },
-      { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6', level: 'Advanced', note: 'Type-Safe Applications' },
+      { name: 'Java', icon: <FaJava />, color: '#ED8B00', level: 'Proficient', note: 'OOP & architecture' },
+      { name: 'Python', icon: <SiPython />, color: '#3776AB', level: 'Advanced', note: 'AI/ML & automation' },
+      { name: 'C++', icon: <SiCplusplus />, color: '#00599C', level: 'Proficient', note: 'Systems & file handling' },
+      { name: 'JavaScript', icon: <SiJavascript />, color: '#d4b106', level: 'Advanced', note: 'Web applications' },
     ],
   },
   {
-    category: 'AI/ML & Document Intelligence',
-    description: 'Computer Vision, OCR pipelines, and Vision-Language models',
+    category: 'AI/ML & Document Processing',
+    description: 'From my AI/ML internship at KreativeTimebox',
     skills: [
-      { name: 'PyTorch', icon: <SiPytorch />, color: '#EE4C2C', level: 'Practitioner', note: 'Deep Learning Models' },
-      { name: 'OpenCV', icon: <SiOpencv />, color: '#5C3EE8', level: 'Practitioner', note: 'Image Processing & Filters' },
-      { name: 'Pandas', icon: <SiPandas />, color: '#E70488', level: 'Advanced', note: 'Data Pipeline & Analysis' },
-      { name: 'Document AI & OCR', icon: <FaBrain />, color: '#0288D1', level: 'Internship', note: 'KreativeTimebox Research' },
-      { name: 'Vision LLMs (VLM)', icon: <FaEye />, color: '#A855F7', level: 'Practitioner', note: 'Multimodal Document Vision' },
+      { name: 'OCR', icon: <FaBrain />, color: '#0288D1', level: 'Internship', note: 'Invoices, receipts, statements' },
+      { name: 'VLM', icon: <FaEye />, color: '#7c3aed', level: 'Internship', note: 'Vision-Language Models' },
+      { name: 'Document Classification', icon: <FaLayerGroup />, color: '#e6a100', level: 'Internship', note: 'Across document formats' },
+      { name: 'Data Extraction', icon: <FaFileExport />, color: '#2f9e6b', level: 'Internship', note: 'Line items, VAT, totals' },
+      { name: 'Data Validation', icon: <FaCheckDouble />, color: '#d6336c', level: 'Internship', note: 'Field-by-field checks' },
     ],
   },
   {
-    category: 'Frontend & UI Engineering',
-    description: 'Responsive, accessible, and high-performance user interfaces',
+    category: 'Frameworks & Web',
+    description: 'Building and serving responsive web applications',
     skills: [
-      { name: 'React.js', icon: <SiReact />, color: '#61DAFB', level: 'Advanced', note: 'Hooks, State & SPA' },
-      { name: 'Next.js', icon: <SiNextdotjs />, color: '#111111', level: 'Advanced', note: 'App Router & SSR' },
-      { name: 'HTML5', icon: <SiHtml5 />, color: '#E34F26', level: 'Expert', note: 'Semantic Architecture' },
-      { name: 'CSS3', icon: <FaCss3Alt />, color: '#1572B6', level: 'Expert', note: 'Flexbox, Grid & Animations' },
-      { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06B6D4', level: 'Advanced', note: 'Modern Utility Styling' },
+      { name: 'React.js', icon: <SiReact />, color: '#1fa8c9', level: 'Advanced', note: 'Hooks, state & SPA' },
+      { name: 'FastAPI', icon: <SiFastapi />, color: '#05998B', level: 'Proficient', note: 'Async Python services' },
+      { name: 'HTML', icon: <SiHtml5 />, color: '#E34F26', level: 'Expert', note: 'Semantic structure' },
+      { name: 'CSS', icon: <FaCss3Alt />, color: '#1572B6', level: 'Expert', note: 'Flexbox, Grid & animation' },
     ],
   },
   {
-    category: 'Backend & Cloud APIs',
-    description: 'Scalable server architecture, microservices, and RESTful endpoints',
+    category: 'Testing',
+    description: 'Quality checks for extraction and classification modules',
     skills: [
-      { name: 'Node.js', icon: <SiNodedotjs />, color: '#339933', level: 'Advanced', note: 'Event-driven Runtime' },
-      { name: 'Express.js', icon: <SiExpress />, color: '#c4c9d0', level: 'Advanced', note: 'API Routing & Middleware' },
-      { name: 'FastAPI', icon: <SiFastapi />, color: '#009688', level: 'Proficient', note: 'Async Python Services' },
-      { name: 'RESTful APIs', icon: <FaNetworkWired />, color: '#38BDF8', level: 'Advanced', note: 'API Design & Integration' },
+      { name: 'Unit Testing', icon: <FaVial />, color: '#2f9e6b', level: 'Internship', note: 'Isolated module checks' },
+      { name: 'Functional Testing', icon: <FaCogs />, color: '#0288D1', level: 'Internship', note: 'End-to-end behaviour' },
+      { name: 'Regression Testing', icon: <FaBug />, color: '#d6336c', level: 'Internship', note: 'Verifying fixes' },
+      { name: 'Vitest', icon: <SiVitest />, color: '#6E9F18', level: 'Testing', note: 'JavaScript unit tests' },
     ],
   },
   {
-    category: 'Databases & Storage',
-    description: 'Relational schemas, NoSQL documents, and data persistence',
+    category: 'Libraries',
+    description: 'Deep learning and data analysis',
     skills: [
-      { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248', level: 'Advanced', note: 'NoSQL & Mongoose' },
-      { name: 'MySQL', icon: <SiMysql />, color: '#4479A1', level: 'Advanced', note: 'Relational Schemas & SQL' },
-      { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#4169E1', level: 'Proficient', note: 'ACID & Relational Queries' },
+      { name: 'PyTorch', icon: <SiPytorch />, color: '#EE4C2C', level: 'Practitioner', note: 'Deep learning models' },
+      { name: 'Pandas', icon: <SiPandas />, color: '#E70488', level: 'Advanced', note: 'Data pipelines & analysis' },
     ],
   },
   {
-    category: 'Enterprise Platforms & Tools',
-    description: 'Industry-certified enterprise platforms, testing, and DevOps',
+    category: 'Databases',
+    description: 'Relational and document data storage',
     skills: [
-      { name: 'ServiceNow', icon: <ServiceNowLogo />, color: '#81B5A1', level: 'CSA & CAD', note: 'Certified Admin & Dev' },
-      { name: 'Power BI', icon: <FaChartBar />, color: '#F2C811', level: 'Proficient', note: 'Analytics & Dashboards' },
-      { name: 'Git & GitHub', icon: <SiGit />, color: '#F05032', level: 'Advanced', note: 'Version Control & Actions' },
-      { name: 'VS Code', icon: <VscVscode />, color: '#007ACC', level: 'Daily Tool', note: 'Dev Environment' },
-      { name: 'Vercel', icon: <SiVercel />, color: '#111111', level: 'Cloud Deploy', note: 'Production Hosting' },
-      { name: 'Vitest & JSDOM', icon: <SiVitest />, color: '#6E9F18', level: 'Testing', note: 'Unit & Regression QA' },
+      { name: 'MySQL', icon: <SiMysql />, color: '#4479A1', level: 'Advanced', note: 'Relational schemas & SQL' },
+      { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248', level: 'Advanced', note: 'NoSQL documents' },
+    ],
+  },
+  {
+    category: 'Tools',
+    description: 'Version control, editor and enterprise platform',
+    skills: [
+      { name: 'Git', icon: <SiGit />, color: '#F05032', level: 'Advanced', note: 'Version control' },
+      { name: 'GitHub', icon: <SiGithub />, color: '#111111', level: 'Advanced', note: 'Collaboration & hosting' },
+      { name: 'VS Code', icon: <VscVscode />, color: '#007ACC', level: 'Daily Tool', note: 'Development environment' },
+      { name: 'ServiceNow', icon: <ServiceNowLogo />, color: '#3c8f74', level: 'CSA & CAD', note: 'Certified Admin & Developer' },
     ],
   },
 ]
 
-const LEVEL_PCT = { Expert: 95, Advanced: 88, Proficient: 74, Practitioner: 68, Internship: 72, 'CSA & CAD': 90 }
-const pctFor = level => LEVEL_PCT[level] || 80
-const CAT_COLORS = ['var(--amber)', 'var(--steel)', 'var(--steel)', 'var(--amber)', '#8b949e', 'var(--amber)']
-
-// Editable: things currently being explored and how I work
-const LEARNING = ['Agentic AI workflows', 'LLM tool-calling', 'Docker & containers', 'System design', 'Prompt engineering', 'CI/CD pipelines']
-const WAYS_OF_WORKING = [
-  { icon: '🧪', title: 'Test-minded', text: 'Unit & regression testing from my Document AI internship.' },
-  { icon: '🔍', title: 'Debugger', text: 'Trace failures through logs, API responses and UI behavior.' },
-  { icon: '🎯', title: 'Detail-driven', text: 'Validating extractions field by field: VAT, line items, banking data.' },
-  { icon: '🚀', title: 'Ships fast', text: '10+ projects deployed on Vercel.' },
+const SOFT_SKILLS = [
+  { icon: <FaPuzzlePiece />, title: 'Problem-Solving', text: 'Tracing extraction failures through backend responses, logs and UI behaviour to find the cause.' },
+  { icon: <FaComments />, title: 'Communication', text: 'Reporting defects clearly and explaining fixes to developers so issues can be reproduced.' },
+  { icon: <FaUsers />, title: 'Teamwork', text: 'Collaborating with developers to reproduce, track and validate fixes.' },
+  { icon: <FaSyncAlt />, title: 'Adaptability', text: 'Moving between AI/OCR validation, web development and ServiceNow platform work.' },
+  { icon: <FaBolt />, title: 'Quick Learning', text: 'Picked up ServiceNow Studio, Flow Designer and Glide Script in a 3-month training.' },
+  { icon: <FaClock />, title: 'Time Management', text: 'Balancing coursework, training, certifications and project delivery.' },
 ]
+
+// Where the skills were used: real project screenshots from /public/projects
+const IN_ACTION = [
+  { title: 'Book Management System', image: '/projects/book-management.svg', skills: ['ServiceNow', 'Business Rules', 'Client Scripts'], text: 'Tables, forms, Business Rules, Client Scripts and Service Catalog approval workflows.' },
+  { title: 'File Explorer Application', image: '/projects/file-explorer.svg', skills: ['C++', 'OOP', 'File handling'], text: 'Create, delete, rename, copy and move operations with a modular OOP design.' },
+  { title: 'TalentFlow, Mini ATS', image: '/projects/mini-ats.png', skills: ['React.js', 'MongoDB', 'CSS'], text: 'Hiring pipeline app with candidate stages and analytics.' },
+  { title: 'DexAI Platform', image: '/projects/dexai.png', skills: ['React.js', 'JavaScript', 'CSS'], text: 'Responsive AI product showcase with interactive workflow demos.' },
+]
+
+const pad = n => String(n + 1).padStart(2, '0')
 
 export default function Skills() {
   return (
@@ -110,80 +120,81 @@ export default function Skills() {
       <div className="container skills-top">
         <div>
           <span className="label">TECHNICAL EXPERTISE</span>
-          <h2 className="skills-main-title">Skills &amp; Technology Stack</h2>
+          <h2 className="skills-main-title">Technical &amp; Soft Skills</h2>
         </div>
         <p className="skills-subtext">
-          A comprehensive suite of technologies, frameworks, and enterprise platforms used across production deployments and AI research.
+          The skills on my resume: languages, AI/ML and document processing, web frameworks, testing, libraries, databases and tools,
+          plus the soft skills I use every day.
         </p>
       </div>
 
-      <div className="container skills-categories-wrap">
-        {skillCategories.map((cat, ci) => (
-          <Reveal key={cat.category} className="skill-cat-card" style={{ '--cat': CAT_COLORS[ci % CAT_COLORS.length] }}>
-            <div className="skill-cat-header">
-              <h3 className="skill-cat-title">{cat.category}</h3>
-              <p className="skill-cat-desc">{cat.description}</p>
+      {/* Technical skills: editorial rows, no cards */}
+      <div className="container sk-list">
+        {skillCategories.map((cat, i) => (
+          <Reveal key={cat.category} className="sk-row">
+            <div className="sk-head">
+              <span className="sk-num">{pad(i)}</span>
+              <div>
+                <h3 className="sk-title">{cat.category}</h3>
+                <p className="sk-desc">{cat.description}</p>
+                <Squiggle className="sk-squig" color="var(--yellow)" />
+              </div>
             </div>
-
-            <Stagger className="skills-badges-grid">
+            <ul className="sk-chips">
               {cat.skills.map(skill => (
-                <Item
-                  key={skill.name}
-                  className="skill-badge-item"
-                  style={{ '--brand-color': skill.color }}
-                >
-                  <div className="skill-icon-wrap" style={{ color: skill.color }}>
-                    {skill.icon}
-                  </div>
-                  <div className="skill-details">
-                    <div className="skill-title-row">
-                      <span className="skill-badge-name">{skill.name}</span>
-                      <span className="skill-badge-level">{skill.level}</span>
-                    </div>
-                    <span className="skill-badge-note">{skill.note}</span>
-                    <div className="skill-bar">
-                      <motion.div
-                        className="skill-bar-fill"
-                        style={{ width: `${pctFor(skill.level)}%`, transformOrigin: 'left' }}
-                        initial={{ scaleX: 0.02 }}
-                        whileInView={{ scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.1, ease: 'easeOut', delay: 0.15 }}
-                      />
-                    </div>
-                  </div>
-                </Item>
+                <li key={skill.name} className="sk-chip" style={{ '--brand-color': skill.color }}>
+                  <span className="sk-ico" style={{ color: skill.color }}>{skill.icon}</span>
+                  <span className="sk-name">{skill.name}</span>
+                </li>
               ))}
-            </Stagger>
+            </ul>
           </Reveal>
         ))}
       </div>
 
-      <div className="container skills-extra">
-        <Reveal className="skills-learning card">
-          <span className="label">CURRENTLY EXPLORING</span>
-          <div className="learning-chips">
-            {LEARNING.map((l, i) => (
-              <motion.span
-                key={l}
-                className="learning-chip"
-                style={{ '--chip': CAT_COLORS[i % CAT_COLORS.length] }}
-              >
-                {l}
-              </motion.span>
-            ))}
-          </div>
+      {/* Soft skills: open columns */}
+      <div className="container soft-wrap">
+        <Reveal>
+          <span className="label">SOFT SKILLS</span>
+          <h2 className="soft-title">How I work with people</h2>
         </Reveal>
-
-        <Stagger className="ways-grid">
-          {WAYS_OF_WORKING.map((w, i) => (
-            <Item key={w.title} className="way-card card" style={{ '--chip': CAT_COLORS[i % CAT_COLORS.length] }}>
-              <span className="way-icon">{w.icon}</span>
-              <h4>{w.title}</h4>
-              <p>{w.text}</p>
+        <Stagger className="soft-list">
+          {SOFT_SKILLS.map((s, i) => (
+            <Item key={s.title} className="soft-item">
+              <span className="soft-n">{pad(i)}</span>
+              <div>
+                <h4><span className="soft-ico">{s.icon}</span>{s.title}</h4>
+                <p>{s.text}</p>
+              </div>
             </Item>
           ))}
         </Stagger>
+      </div>
+
+      {/* Skills in action: showcase rows with the project screenshot */}
+      <div className="container action-wrap">
+        <Reveal className="action-head">
+          <div>
+            <span className="label">SKILLS IN ACTION</span>
+            <h2 className="soft-title">Where I used them</h2>
+          </div>
+          <Link to="/work" className="hs-link">All projects <FaArrowRight /></Link>
+        </Reveal>
+        <div className="showcase-list">
+          {IN_ACTION.map((a, i) => (
+            <Reveal key={a.title} className={`showcase ${i % 2 ? 'flip' : ''}`}>
+              <div className="showcase-text">
+                <span className="brush-tag">{a.title}</span>
+                <p>{a.text}</p>
+                <div className="showcase-tags">{a.skills.map(t => <span className="pill" key={t}>{t}</span>)}</div>
+              </div>
+              <div className="showcase-art">
+                <Clip className="clip-l" /><Clip className="clip-r" />
+                <img src={a.image} alt={a.title} loading="lazy" decoding="async" />
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   )

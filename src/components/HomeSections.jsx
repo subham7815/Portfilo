@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom'
+import { FaLaptopCode, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa'
 import {
-  FaLaptopCode, FaBrain, FaCogs, FaVial, FaArrowRight, FaExternalLinkAlt,
-} from 'react-icons/fa'
-import {
-  SiPython, SiJavascript, SiTypescript, SiCplusplus, SiReact, SiNextdotjs, SiTailwindcss,
-  SiNodedotjs, SiExpress, SiFastapi, SiMongodb, SiMysql, SiPostgresql, SiPytorch, SiOpencv,
-  SiPandas, SiGit, SiGithub, SiVercel, SiDocker, SiLinux, SiPostman, SiHackerrank, SiInfosys, SiTata,
+  SiPython, SiJavascript, SiCplusplus, SiReact, SiFastapi, SiMongodb, SiMysql, SiPytorch,
+  SiPandas, SiGit, SiGithub, SiHtml5, SiVitest, SiHackerrank, SiInfosys, SiTata,
 } from 'react-icons/si'
+import { FaJava, FaCss3Alt, FaBrain, FaEye, FaLayerGroup, FaFileExport, FaCheckDouble, FaVial, FaBug, FaCogs } from 'react-icons/fa'
+import { VscVscode } from 'react-icons/vsc'
 import { Reveal, Stagger, Item } from './motion'
 import { Starburst, Scribble, Squiggle, Clip, Tape, Sparkle } from './Doodles'
 import { projects } from './Work'
@@ -29,14 +28,14 @@ const TIMELINE = [
 ]
 
 const INTRO_TOOLS = [
-  [SiReact, '#61DAFB'], [SiNodedotjs, '#5FA04E'], [SiPython, '#3776AB'], [SiPytorch, '#EE4C2C'], [SiMongodb, '#47A248'],
+  [SiReact, '#1fa8c9'], [SiPython, '#3776AB'], [SiPytorch, '#EE4C2C'], [SiMongodb, '#47A248'], [SiMysql, '#4479A1'],
 ]
 
 const SERVICES = [
-  { icon: <FaLaptopCode />, title: 'Full-Stack Web Apps', text: 'React, Next.js, Node and Express applications with clean APIs, MongoDB / SQL data layers and responsive UI.', points: ['SPA & SSR apps', 'REST API design', 'Vercel deployment'] },
+  { icon: <FaLaptopCode />, title: 'Full-Stack Web Apps', text: 'React front-ends and FastAPI services with MySQL / MongoDB data layers and responsive HTML/CSS interfaces.', points: ['React.js apps', 'FastAPI services', 'MySQL & MongoDB'] },
   { icon: <FaBrain />, title: 'Document AI & OCR', text: 'Pipelines that read invoices, receipts and bank statements using OCR and Vision-Language Models, validated field by field.', points: ['OCR & VLM validation', 'Key-value extraction', 'PyTorch workflows'] },
   { icon: <FaCogs />, title: 'ServiceNow Development', text: 'Certified (CSA & CAD) platform work: scoped apps, Flow Designer, Business Rules, Client Scripts and ACL security.', points: ['Flow Designer', 'GlideScript', 'ITSM & CMDB'] },
-  { icon: <FaVial />, title: 'Testing & Quality', text: 'Functional, unit and regression testing mindset: log tracing, edge-case debugging and benchmark-driven checks.', points: ['Regression testing', 'Vitest & JSDOM', 'Telemetry debugging'] },
+  { icon: <FaVial />, title: 'Testing & Quality', text: 'Functional, unit and regression testing mindset: log tracing, edge-case debugging and benchmark-driven checks.', points: ['Unit & functional tests', 'Regression testing', 'Vitest'] },
 ]
 
 const PROCESS = [
@@ -59,11 +58,19 @@ const ISSUERS = [
 ]
 
 const TOOLBOX = [
-  { group: 'Languages', items: [[SiPython, 'Python', '#3776AB'], [SiJavascript, 'JavaScript', '#d4b106'], [SiTypescript, 'TypeScript', '#3178C6'], [SiCplusplus, 'C++', '#00599C']] },
-  { group: 'Frontend', items: [[SiReact, 'React', '#1fa8c9'], [SiNextdotjs, 'Next.js', '#111111'], [SiTailwindcss, 'Tailwind', '#06B6D4']] },
-  { group: 'Backend & Data', items: [[SiNodedotjs, 'Node.js', '#5FA04E'], [SiExpress, 'Express', '#333333'], [SiFastapi, 'FastAPI', '#05998B'], [SiMongodb, 'MongoDB', '#47A248'], [SiMysql, 'MySQL', '#4479A1'], [SiPostgresql, 'PostgreSQL', '#336791']] },
-  { group: 'AI / ML', items: [[SiPytorch, 'PyTorch', '#EE4C2C'], [SiOpencv, 'OpenCV', '#2f6fb7'], [SiPandas, 'Pandas', '#E70488']] },
-  { group: 'Tools & Cloud', items: [[SiGit, 'Git', '#F05032'], [SiGithub, 'GitHub', '#111111'], [SiVercel, 'Vercel', '#111111'], [SiDocker, 'Docker', '#2496ED'], [SiLinux, 'Linux', '#c99a00'], [SiPostman, 'Postman', '#FF6C37']] },
+  { group: 'Languages', items: [[FaJava, 'Java', '#ED8B00'], [SiPython, 'Python', '#3776AB'], [SiCplusplus, 'C++', '#00599C'], [SiJavascript, 'JavaScript', '#d4b106']] },
+  { group: 'AI/ML & Document Processing', items: [[FaBrain, 'OCR', '#0288D1'], [FaEye, 'VLM', '#7c3aed'], [FaLayerGroup, 'Document Classification', '#e6a100'], [FaFileExport, 'Data Extraction', '#2f9e6b'], [FaCheckDouble, 'Data Validation', '#d6336c']] },
+  { group: 'Frameworks & Web', items: [[SiReact, 'React.js', '#1fa8c9'], [SiFastapi, 'FastAPI', '#05998B'], [SiHtml5, 'HTML', '#E34F26'], [FaCss3Alt, 'CSS', '#1572B6']] },
+  { group: 'Testing', items: [[FaVial, 'Unit Testing', '#2f9e6b'], [FaCogs, 'Functional Testing', '#0288D1'], [FaBug, 'Regression Testing', '#d6336c'], [SiVitest, 'Vitest', '#6E9F18']] },
+  { group: 'Libraries & Databases', items: [[SiPytorch, 'PyTorch', '#EE4C2C'], [SiPandas, 'Pandas', '#E70488'], [SiMysql, 'MySQL', '#4479A1'], [SiMongodb, 'MongoDB', '#47A248']] },
+  { group: 'Tools', items: [[SiGit, 'Git', '#F05032'], [SiGithub, 'GitHub', '#111111'], [VscVscode, 'VS Code', '#007ACC']] },
+]
+
+const CERT_GALLERY = [
+  { img: '/certificates/oracle-agentic-ai.jpg', title: 'Oracle', sub: 'Agentic AI Foundations' },
+  { img: '/certificates/servicenow-csa.jpg', title: 'ServiceNow CSA', sub: 'System Administrator' },
+  { img: '/certificates/servicenow-cad.jpg', title: 'ServiceNow CAD', sub: 'Application Developer' },
+  { img: '/certificates/hackerrank-react.png', title: 'HackerRank', sub: 'Frontend (React)' },
 ]
 
 export default function HomeSections() {
@@ -206,6 +213,16 @@ export default function HomeSections() {
               </div>
               <Link to="/certificates" className="hs-link">See all certificates <FaArrowRight /></Link>
             </Reveal>
+            <div className="cert-gallery">
+              {CERT_GALLERY.map((c, i) => (
+                <Link to="/certificates" key={c.title} className={`cert-polaroid r${i % 4}`}>
+                  <Tape />
+                  <img src={c.img} alt={`${c.title} certificate`} loading="lazy" decoding="async" />
+                  <span className="cp-title">{c.title}</span>
+                  <span className="cp-sub">{c.sub}</span>
+                </Link>
+              ))}
+            </div>
             <Stagger className="issuer-grid">
               {ISSUERS.map(is => (
                 <Item key={is.name} className="issuer-card" style={{ '--brand': is.color }}>
@@ -221,7 +238,7 @@ export default function HomeSections() {
           <div className="container">
             <Reveal>
               <span className="label">Toolbox</span>
-              <h2 className="hs-title">Technologies I work with</h2>
+              <h2 className="hs-title">Skills from my resume</h2>
             </Reveal>
             <div className="toolbox">
               {TOOLBOX.map(g => (
@@ -267,7 +284,7 @@ export default function HomeSections() {
             </div>
             <div className="cta-banner-actions">
               <Link to="/contact" className="cta-btn primary">Get in touch <FaArrowRight style={{ marginLeft: 8 }} /></Link>
-              <a href="/resume.pdf" download="Subham_Kumar_Nayak_Resume.pdf" className="cta-btn ghost">Download resume</a>
+              <a href="/Subham_Kumar_Nayak_Resume.pdf" download="Subham_Kumar_Nayak_Resume.pdf" className="cta-btn ghost">Download resume</a>
             </div>
           </Reveal>
         </div>
