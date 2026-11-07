@@ -3,8 +3,9 @@ import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Work from './components/Work'
-import About from './components/About'
+import Certificates from './components/Certificates'
 import Skills from './components/Skills'
+import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import './index.css'
@@ -22,7 +23,6 @@ function App() {
       return obs
     }
 
-    // Run immediately + after a tick to catch all rendered elements
     const obs1 = observe()
     const timer = setTimeout(() => { obs1.disconnect(); observe() }, 100)
     return () => { clearTimeout(timer); obs1.disconnect() }
@@ -35,8 +35,9 @@ function App() {
       <main>
         <Hero />
         <Work />
-        <About />
+        <Certificates />
         <Skills />
+        <About />
         <Contact />
       </main>
       <Footer />

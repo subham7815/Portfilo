@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="100%" stop-color="#05070d"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg2)"/>
+
+  <!-- Top Navigation -->
+  <rect x="25" y="20" width="750" height="44" rx="8" fill="#131b2e" stroke="rgba(255,255,255,0.06)"/>
+  <text x="50" y="47" font-family="sans-serif" font-size="16" font-weight="800" fill="#a78bfa">MORROW</text>
+  <text x="135" y="46" font-family="sans-serif" font-size="11" fill="#cbd5e1">BANKING DASHBOARD</text>
+  <rect x="640" y="30" width="115" height="24" rx="12" fill="#222f4b"/>
+  <text x="655" y="46" font-family="sans-serif" font-size="11" fill="#93c5fd">● Live Feed</text>
+
+  <!-- Left: Virtual Card & Quick Actions -->
+  <rect x="25" y="80" width="340" height="210" rx="16" fill="url(#cardGrad)"/>
+  <text x="50" y="115" font-family="sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.8)">MORROW PLATINUM</text>
+  <circle cx="320" cy="115" r="14" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="335" cy="115" r="14" fill="rgba(255,255,255,0.2)"/>
+  
+  <text x="50" y="185" font-family="monospace" font-size="18" font-weight="600" fill="#fff" letter-spacing="3">••••  ••••  ••••  7815</text>
+  <text x="50" y="240" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">CARDHOLDER</text>
+  <text x="50" y="260" font-family="sans-serif" font-size="13" font-weight="700" fill="#fff">SUBHAM K NAYAK</text>
+  <text x="270" y="240" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">EXPIRES</text>
+  <text x="270" y="260" font-family="monospace" font-size="13" font-weight="700" fill="#fff">09/29</text>
+
+  <!-- Right: Balance & Stats -->
+  <rect x="385" y="80" width="390" height="210" rx="12" fill="#131b2e" stroke="rgba(255,255,255,0.06)"/>
+  <text x="410" y="112" font-family="sans-serif" font-size="11" fill="#94a3b8">TOTAL LIQUIDITY</text>
+  <text x="410" y="150" font-family="sans-serif" font-size="32" font-weight="800" fill="#fff">$128,490.50</text>
+  <text x="410" y="172" font-family="sans-serif" font-size="11" fill="#10b981">▲ +$14,230 (12.4%) this week</text>
+
+  <!-- Mini Chart visualization -->
+  <path d="M 410 250 Q 460 210, 510 230 T 610 195 T 710 215 T 750 180" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+  <circle cx="750" cy="180" r="5" fill="#a78bfa"/>
+
+  <!-- Bottom: Transactions -->
+  <rect x="25" y="305" width="750" height="175" rx="12" fill="#131b2e" stroke="rgba(255,255,255,0.06)"/>
+  <text x="50" y="335" font-family="sans-serif" font-size="14" font-weight="700" fill="#fff">Recent Financial Transfers &amp; Investments</text>
+
+  <!-- Tx 1 -->
+  <circle cx="65" cy="370" r="14" fill="#1e293b"/>
+  <text x="60" y="375" font-family="sans-serif" font-size="12" fill="#a78bfa">⚡</text>
+  <text x="90" y="367" font-family="sans-serif" font-size="12" font-weight="600" fill="#fff">Stripe Payout · Revenue</text>
+  <text x="90" y="382" font-family="sans-serif" font-size="10" fill="#64748b">Yesterday at 14:32</text>
+  <text x="730" y="375" text-anchor="end" font-family="sans-serif" font-size="13" font-weight="700" fill="#10b981">+$12,500.00</text>
+
+  <!-- Tx 2 -->
+  <circle cx="65" cy="420" r="14" fill="#1e293b"/>
+  <text x="60" y="425" font-family="sans-serif" font-size="12" fill="#60a5fa">☁</text>
+  <text x="90" y="417" font-family="sans-serif" font-size="12" font-weight="600" fill="#fff">Amazon Web Services · Cloud Infrastructure</text>
+  <text x="90" y="432" font-family="sans-serif" font-size="10" fill="#64748b">Nov 04, 2026</text>
+  <text x="730" y="425" text-anchor="end" font-family="sans-serif" font-size="13" font-weight="700" fill="#f87171">-$342.18</text>
+
+  <!-- Footer Info -->
+  <text x="50" y="465" font-family="sans-serif" font-size="10" fill="#64748b">Designed with CSS Grid · Responsive Charts · Financial UI Patterns</text>
+</svg>

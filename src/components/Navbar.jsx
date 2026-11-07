@@ -22,7 +22,7 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <ul className="nav-links">
-          {['Work', 'About', 'Skills', 'Contact'].map(l => (
+          {['Work', 'Certificates', 'Skills', 'About', 'Contact'].map(l => (
             <li key={l}>
               <Link to={l.toLowerCase()} smooth duration={700} offset={-80} spy activeClass="active">
                 {l}
@@ -32,8 +32,8 @@ export default function Navbar() {
         </ul>
 
         {/* CTA */}
-        <a href="mailto:subham@example.com" className="nav-cta">
-          Available for work ↗
+        <a href="mailto:nayaksubham551@gmail.com" className="nav-cta">
+          Available for hire ↗
         </a>
 
         {/* Hamburger */}
@@ -48,7 +48,7 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-        {['Work', 'About', 'Skills', 'Contact'].map(l => (
+        {['Work', 'Certificates', 'Skills', 'About', 'Contact'].map(l => (
           <Link key={l} to={l.toLowerCase()} smooth duration={700} offset={-80}
             onClick={() => setMenuOpen(false)}>
             {l}

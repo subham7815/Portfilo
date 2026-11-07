@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="snBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04202c"/>
+      <stop offset="100%" stop-color="#021219"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#snBg)"/>
+
+  <!-- Top bar -->
+  <rect x="25" y="20" width="750" height="46" rx="8" fill="#0b2c3d" stroke="#81b5a1" stroke-width="1" stroke-opacity="0.3"/>
+  <circle cx="50" cy="43" r="10" fill="#81b5a1"/>
+  <text x="70" y="48" font-family="sans-serif" font-size="16" font-weight="800" fill="#fff">ServiceNow</text>
+  <text x="175" y="47" font-family="sans-serif" font-size="12" fill="#81b5a1">| Studio App: Book Management System</text>
+  <rect x="660" y="31" width="100" height="24" rx="12" fill="#81b5a1"/>
+  <text x="675" y="47" font-family="sans-serif" font-size="10" font-weight="700" fill="#04202c">Enterprise App</text>
+
+  <!-- Left Flow Designer representation -->
+  <rect x="25" y="80" width="360" height="395" rx="8" fill="#082332" stroke="rgba(255,255,255,0.06)"/>
+  <text x="45" y="115" font-family="sans-serif" font-size="14" font-weight="700" fill="#81b5a1">Flow Designer &amp; Business Rules</text>
+
+  <!-- Step 1 -->
+  <rect x="45" y="140" width="320" height="60" rx="8" fill="#0f3448" stroke="#81b5a1" stroke-width="1"/>
+  <text x="65" y="165" font-family="sans-serif" font-size="12" font-weight="700" fill="#fff">Trigger: Book Issue Request</text>
+  <text x="65" y="185" font-family="sans-serif" font-size="10" fill="#94a3b8">When record inserted in u_book_request table</text>
+
+  <line x1="205" y1="200" x2="205" y2="225" stroke="#81b5a1" stroke-width="2" stroke-dasharray="4"/>
+
+  <!-- Step 2 -->
+  <rect x="45" y="225" width="320" height="60" rx="8" fill="#0f3448"/>
+  <text x="65" y="250" font-family="sans-serif" font-size="12" font-weight="700" fill="#fff">Action: Inventory Check &amp; User Verification</text>
+  <text x="65" y="270" font-family="sans-serif" font-size="10" fill="#94a3b8">GlideRecord query on u_library_inventory</text>
+
+  <line x1="205" y1="285" x2="205" y2="310" stroke="#81b5a1" stroke-width="2" stroke-dasharray="4"/>
+
+  <!-- Step 3 -->
+  <rect x="45" y="310" width="320" height="60" rx="8" fill="#0f3448"/>
+  <text x="65" y="335" font-family="sans-serif" font-size="12" font-weight="700" fill="#fff">Action: Automated Email Notification &amp; Due Date</text>
+  <text x="65" y="355" font-family="sans-serif" font-size="10" fill="#94a3b8">Auto-calculate 14 days renewal grace period</text>
+
+  <rect x="45" y="395" width="320" height="60" rx="8" fill="#0f3448"/>
+  <text x="65" y="420" font-family="sans-serif" font-size="12" font-weight="700" fill="#81b5a1">Service Catalog Integration</text>
+  <text x="65" y="440" font-family="sans-serif" font-size="10" fill="#94a3b8">End-user self-service portal with instant status tracking</text>
+
+  <!-- Right: Schema & Statistics -->
+  <rect x="400" y="80" width="375" height="190" rx="8" fill="#082332" stroke="rgba(255,255,255,0.06)"/>
+  <text x="420" y="115" font-family="sans-serif" font-size="14" font-weight="700" fill="#81b5a1">Scoped Table Architecture</text>
+  
+  <text x="420" y="150" font-family="monospace" font-size="12" fill="#fff">• x_snc_lib_books (Catalog &amp; ISBN)</text>
+  <text x="420" y="178" font-family="monospace" font-size="12" fill="#fff">• x_snc_lib_borrowers (Member profiles)</text>
+  <text x="420" y="206" font-family="monospace" font-size="12" fill="#fff">• x_snc_lib_transactions (Audit &amp; Fines)</text>
+  <text x="420" y="234" font-family="monospace" font-size="12" fill="#fff">• x_snc_lib_reservations (Waitlists)</text>
+
+  <rect x="400" y="285" width="375" height="190" rx="8" fill="#082332" stroke="rgba(255,255,255,0.06)"/>
+  <text x="420" y="318" font-family="sans-serif" font-size="14" font-weight="700" fill="#81b5a1">Certified Developer Implementation</text>
+  <text x="420" y="348" font-family="sans-serif" font-size="12" fill="#e2e8f0">✓ Script Includes &amp; Client Scripts</text>
+  <text x="420" y="375" font-family="sans-serif" font-size="12" fill="#e2e8f0">✓ Access Control Lists (ACLs) &amp; Security Roles</text>
+  <text x="420" y="402" font-family="sans-serif" font-size="12" fill="#e2e8f0">✓ Automated Test Framework (ATF) suites</text>
+  <text x="420" y="429" font-family="sans-serif" font-size="12" fill="#e2e8f0">✓ REST API integration for external book lookups</text>
+</svg>

@@ -1,8 +1,10 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
+import { FaEnvelope, FaLinkedin, FaGithub, FaMapMarkerAlt } from 'react-icons/fa'
+import { SiVercel } from 'react-icons/si'
 import './Contact.css'
 
 export default function Contact() {
-  const [form, setForm]     = useState({ name: '', email: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [status, setStatus] = useState(null)
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
@@ -10,7 +12,10 @@ export default function Contact() {
   const handleSubmit = e => {
     e.preventDefault()
     setStatus('sending')
-    setTimeout(() => setStatus('sent'), 1200)
+    // Open default mail client or simulate instant send
+    const mailto = `mailto:nayaksubham551@gmail.com?subject=${encodeURIComponent(form.subject || 'Portfolio Inquiry from ' + form.name)}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`)}`
+    window.location.href = mailto
+    setTimeout(() => setStatus('sent'), 600)
   }
 
   return (
@@ -19,51 +24,105 @@ export default function Contact() {
 
         {/* Left */}
         <div className="contact-left">
-          <span className="label fade-up">Get in touch</span>
-          <h2 className="contact-heading fade-up">
+          <span className="label">INITIATE CONVERSATION</span>
+          <h2 className="contact-heading">
             Let's build<br />
-            <em>something great.</em>
+            <em>intelligent software.</em>
           </h2>
-          <div className="contact-meta fade-up">
-            <a href="mailto:subham@example.com" className="contact-email">
-              subham@example.com
+
+          <div className="contact-meta">
+            <a href="mailto:nayaksubham551@gmail.com" className="contact-email">
+              <FaEnvelope className="contact-icon" /> nayaksubham551@gmail.com
             </a>
+            <div className="contact-location">
+              <FaMapMarkerAlt className="contact-icon" /> Odisha, India 🇮🇳 · Open to Remote &amp; On-Site
+            </div>
             <p className="contact-note">
-              Open to freelance projects, full-time roles, and interesting conversations.
+              Available for software engineering roles, Document AI/OCR research initiatives, and ServiceNow enterprise implementations.
             </p>
+
+            <div className="contact-direct-links">
+              <a href="https://www.linkedin.com/in/subham7815/" target="_blank" rel="noreferrer" className="contact-pill-link">
+                <FaLinkedin /> LinkedIn Profile
+              </a>
+              <a href="https://github.com/subham7815" target="_blank" rel="noreferrer" className="contact-pill-link">
+                <FaGithub /> GitHub (subham7815)
+              </a>
+              <a href="https://vercel.com/shubhams-projects-369a9342" target="_blank" rel="noreferrer" className="contact-pill-link">
+                <SiVercel /> Vercel Deployments
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Right: form */}
-        <div className="contact-right fade-up" style={{ transitionDelay: '0.1s' }}>
+        <div className="contact-right">
           {status === 'sent' ? (
             <div className="sent-state">
               <span className="sent-icon">✓</span>
-              <p>Message received. I'll be in touch shortly.</p>
-              <button className="btn-pill" onClick={() => { setStatus(null); setForm({ name:'', email:'', message:'' }) }}>
-                Send another
+              <p>Thank you, Subham will receive your email directly!</p>
+              <button
+                className="btn-pill"
+                onClick={() => { setStatus(null); setForm({ name:'', email:'', subject:'', message:'' }) }}
+              >
+                Send another message
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="field">
-                <label htmlFor="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your name"
-                  value={form.name} onChange={handleChange} required />
+                <label htmlFor="name">Your Name</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="e.g. Alex Johnson"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                />
               </div>
+
               <div className="field">
-                <label htmlFor="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="your@email.com"
-                  value={form.email} onChange={handleChange} required />
+                <label htmlFor="email">Your Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="alex@company.com"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                />
               </div>
+
+              <div className="field">
+                <label htmlFor="subject">Subject / Project Interest</label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  placeholder="Software Engineering / AI / ServiceNow"
+                  value={form.subject}
+                  onChange={handleChange}
+                />
+              </div>
+
               <div className="field">
                 <label htmlFor="message">Message</label>
-                <textarea id="message" name="message" rows="6"
-                  placeholder="Tell me what you're working on..."
-                  value={form.message} onChange={handleChange} required />
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me about your team, project, or opportunity..."
+                  value={form.message}
+                  onChange={handleChange}
+                  required
+                />
               </div>
+
               <button type="submit" className="contact-submit" disabled={status === 'sending'}>
-                {status === 'sending' ? 'Sending…' : 'Send message →'}
+                {status === 'sending' ? 'Composing…' : 'Send Message →'}
               </button>
             </form>
           )}
