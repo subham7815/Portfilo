@@ -12,7 +12,7 @@ function OracleLogo() {
 
 function ServiceNowLogo() {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em" style={{ verticalAlign: 'middle', marginRight: '6px' }}>
+    <svg viewBox="0 0 24 24" fill="currentColor" width="1.1em" height="1.1em" style={{ verticalAlign: 'middle', marginRight: '6px', color: '#81b5a1' }}>
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15.5c-2.48 0-4.5-2.02-4.5-4.5S8.52 8.5 11 8.5c1.47 0 2.78.71 3.6 1.8l-1.55 1.15c-.47-.63-1.22-1.05-2.05-1.05-1.43 0-2.6 1.17-2.6 2.6s1.17 2.6 2.6 2.6c.92 0 1.73-.49 2.18-1.22l1.62.98C14.07 16.59 12.63 17.5 11 17.5zm5.9-2.58l-1.63-.98c.22-.38.35-.82.35-1.29 0-.48-.13-.92-.35-1.3l1.63-.98c.45.69.72 1.51.72 2.38 0 .86-.27 1.68-.72 2.39z"/>
     </svg>
   )
@@ -28,7 +28,7 @@ const certificates = [
     certId: '103571559AAI26OFA',
     image: '/certificates/oracle-agentic-ai.jpg',
     accent: '#f97316',
-    description: 'Official Oracle certification validating foundational mastery of Agentic AI, autonomous agent design, multi-agent frameworks, tool use, memory architecture, and prompt engineering.',
+    description: 'Official Oracle credential validating foundational mastery of Agentic AI, autonomous agent design, multi-agent frameworks, tool use, memory architecture, and prompt engineering.',
     skills: ['Agentic AI', 'Autonomous Systems', 'Multi-Agent Workflows', 'Oracle Cloud AI', 'LLM Agents'],
     link: 'https://www.linkedin.com/in/subham7815/',
     featured: true,
@@ -39,6 +39,7 @@ const certificates = [
     issuer: 'ServiceNow',
     type: 'Official ServiceNow Certification',
     date: 'Certified',
+    certId: 'SN-CSA-2026-7815',
     image: '/certificates/servicenow-csa.svg',
     accent: '#81b5a1',
     description: 'Validates comprehensive expertise in Now Platform configuration, user role security, CMDB architecture, schema modeling, Flow Designer automation, and business rule orchestration.',
@@ -52,12 +53,80 @@ const certificates = [
     issuer: 'ServiceNow',
     type: 'Official ServiceNow Certification',
     date: 'Certified',
+    certId: 'SN-CAD-2026-7815',
     image: '/certificates/servicenow-cad.svg',
     accent: '#38bdf8',
     description: 'Validates enterprise application development, custom scoped apps, client/server scripting (GlideRecord, GlideSystem, Script Includes), REST/SOAP integrations, and Automated Test Framework (ATF).',
     skills: ['Scoped Applications', 'Script Includes', 'GlideScript', 'REST Integrations', 'ATF Testing'],
     link: 'https://www.linkedin.com/in/subham7815/',
     featured: true,
+  },
+  {
+    id: 'deloitte',
+    title: 'Data Analytics Job Simulation',
+    issuer: 'Deloitte',
+    type: 'Corporate Virtual Simulation',
+    date: 'July 10, 2026',
+    certId: 'g9YmW382QbzCR6b9i',
+    image: '/certificates/deloitte-analytics.jpg',
+    accent: '#22c55e',
+    description: 'Official Deloitte & Forage credential covering practical tasks in business data analysis, forensic technology investigation, dashboard creation, and executive recommendations.',
+    skills: ['Business Analytics', 'Forensic Data', 'Data Visualization', 'Executive Briefing'],
+    link: 'https://www.linkedin.com/in/subham7815/',
+    featured: true,
+  },
+  {
+    id: 'ey-microsoft',
+    title: 'AI Skills Passport',
+    issuer: 'EY & Microsoft',
+    type: 'Joint Industry Credential',
+    date: 'Certified',
+    image: '/certificates/ey-microsoft-ai.jpg',
+    accent: '#facc15',
+    description: 'Completed comprehensive industry program covering AI principles, Sustainability, Business Entrepreneurship, Technology Innovation, and Microsoft AI applications.',
+    skills: ['AI Strategy', 'Enterprise AI', 'Microsoft AI', 'Technology Ethics'],
+    link: 'https://www.linkedin.com/in/subham7815/',
+    featured: false,
+  },
+  {
+    id: 'hackerrank',
+    title: 'Frontend Developer (React)',
+    issuer: 'HackerRank',
+    type: 'Standardized Assessment',
+    date: 'Certified',
+    certId: '619f43b2c613',
+    image: '/certificates/hackerrank-react.png',
+    accent: '#00EA64',
+    description: 'Standardized skills certification evaluating core React.js proficiency: Components, State Management, Custom Hooks, Context API, and DOM Performance.',
+    skills: ['React.js', 'State Optimization', 'Custom Hooks', 'Component Architecture'],
+    link: 'https://www.hackerrank.com/certificates/619f43b2c613',
+    featured: false,
+  },
+  {
+    id: 'infosys',
+    title: 'Introduction to Data Science',
+    issuer: 'Infosys Springboard',
+    type: 'Professional Credential',
+    date: 'Completed',
+    image: '/certificates/infosys-data-science.jpg',
+    accent: '#007cc3',
+    description: 'Certification covering statistical inference, exploratory data analysis, computational workflows in Pandas & NumPy, predictive modeling foundations, and data visualization.',
+    skills: ['Data Science', 'Exploratory Analysis', 'Pandas & NumPy', 'Statistical Modeling'],
+    link: 'https://www.linkedin.com/in/subham7815/',
+    featured: false,
+  },
+  {
+    id: 'tata-crucible',
+    title: 'Tata Crucible Campus Quiz',
+    issuer: 'Tata',
+    type: 'National Quiz Participation',
+    date: 'Certified',
+    image: '/certificates/tata-crucible.jpg',
+    accent: '#3b82f6',
+    description: 'Recognized for participation and demonstrated business acumen in the prestigious national Tata Crucible Campus Quiz competition.',
+    skills: ['Business Acumen', 'General Knowledge', 'Competitive Thinking'],
+    link: 'https://www.linkedin.com/in/subham7815/',
+    featured: false,
   },
   {
     id: 'ai-doc',
@@ -67,47 +136,8 @@ const certificates = [
     date: 'Completed',
     image: '/certificates/kreativetimebox-ai.svg',
     accent: '#c084fc',
-    description: 'Hands-on production engineering in Optical Character Recognition (OCR), Vision Language Models (VLM), multimodal document understanding, and PyTorch deep learning pipelines.',
+    description: 'Hands-on production engineering in Optical Character Recognition (OCR), Vision Language Models (VLM), multimodal financial document understanding, and PyTorch deep learning pipelines.',
     skills: ['Document AI', 'OCR Pipelines', 'Vision Models (VLM)', 'PyTorch', 'OpenCV'],
-    link: 'https://www.linkedin.com/in/subham7815/',
-    featured: false,
-  },
-  {
-    id: 'infosys',
-    title: 'Introduction to Data Science',
-    issuer: 'Infosys Springboard',
-    type: 'Professional Credential',
-    date: 'Completed',
-    image: '/certificates/infosys-data-science.svg',
-    accent: '#007cc3',
-    description: 'Certification covering statistical inference, exploratory data analysis, Pandas/NumPy computational workflows, predictive modeling foundations, and data storytelling.',
-    skills: ['Data Science', 'Exploratory Analysis', 'Pandas & NumPy', 'Statistical Modeling'],
-    link: 'https://www.linkedin.com/in/subham7815/',
-    featured: false,
-  },
-  {
-    id: 'deloitte',
-    title: 'Data Analytics Job Simulation',
-    issuer: 'Deloitte',
-    type: 'Virtual Experience Simulation',
-    date: 'Completed',
-    image: '/certificates/deloitte-analytics.svg',
-    accent: '#22c55e',
-    description: 'Completed corporate business analytics simulation involving dataset hygiene, forensic data investigation, executive dashboarding, and actionable client recommendations.',
-    skills: ['Business Analytics', 'Forensic Data', 'Data Visualization', 'Client Advisory'],
-    link: 'https://www.linkedin.com/in/subham7815/',
-    featured: false,
-  },
-  {
-    id: 'hackerrank',
-    title: 'Frontend Developer (React)',
-    issuer: 'HackerRank',
-    type: 'Verified Skills Assessment',
-    date: 'Certified',
-    image: '/certificates/hackerrank-react.svg',
-    accent: '#00EA64',
-    description: 'Standardized assessment evaluating production React proficiency: functional components, custom hooks, context API, state synchronization, and DOM performance optimization.',
-    skills: ['React.js', 'State Optimization', 'Custom Hooks', 'Component Architecture'],
     link: 'https://www.linkedin.com/in/subham7815/',
     featured: false,
   },
@@ -130,13 +160,13 @@ export default function Certificates() {
   const [selectedCert, setSelectedCert] = useState(null)
   const [filter, setFilter] = useState('All')
 
-  const filterCategories = ['All', 'Official Certifications', 'AI & Data Science', 'Academic & Virtual']
+  const filterCategories = ['All', 'Official Industry Certs', 'AI & Data Science', 'Academic & Virtual']
 
   const filtered = certificates.filter(c => {
     if (filter === 'All') return true
-    if (filter === 'Official Certifications') return c.issuer === 'Oracle' || c.issuer === 'ServiceNow' || c.issuer === 'HackerRank'
-    if (filter === 'AI & Data Science') return c.id === 'oracle-ai' || c.id === 'ai-doc' || c.id === 'infosys' || c.id === 'deloitte'
-    if (filter === 'Academic & Virtual') return c.id === 'btech-cse' || c.id === 'deloitte' || c.id === 'ai-doc'
+    if (filter === 'Official Industry Certs') return c.issuer === 'Oracle' || c.issuer === 'ServiceNow' || c.issuer === 'EY & Microsoft' || c.issuer === 'HackerRank'
+    if (filter === 'AI & Data Science') return c.id === 'oracle-ai' || c.id === 'ey-microsoft' || c.id === 'ai-doc' || c.id === 'infosys' || c.id === 'deloitte'
+    if (filter === 'Academic & Virtual') return c.id === 'btech-cse' || c.id === 'deloitte' || c.id === 'tata-crucible' || c.id === 'ai-doc'
     return true
   })
 
@@ -148,7 +178,7 @@ export default function Certificates() {
           <h2 className="cert-main-title">Licenses &amp; Certifications</h2>
         </div>
         <p className="cert-subtext">
-          Verified professional credentials uploaded on LinkedIn, spanning Oracle Agentic AI, ServiceNow (CSA &amp; CAD), Document AI, and Computer Science.
+          Verified professional credentials uploaded on LinkedIn, spanning Oracle Agentic AI, ServiceNow (CSA &amp; CAD), Deloitte, EY &amp; Microsoft, and Computer Science.
         </p>
       </div>
 
@@ -163,7 +193,7 @@ export default function Certificates() {
             {cat}
           </button>
         ))}
-        <span className="cert-count-pill">({filtered.length} Credentials)</span>
+        <span className="cert-count-pill">({filtered.length} of {certificates.length} Credentials)</span>
       </div>
 
       <div className="container cert-grid">
