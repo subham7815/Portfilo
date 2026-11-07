@@ -4,6 +4,7 @@ import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Work from './components/Work'
+import Experience from './components/Experience'
 import Certificates from './components/Certificates'
 import Skills from './components/Skills'
 import About from './components/About'
@@ -39,6 +40,7 @@ function App() {
       <main>
         <Hero />
         <Work />
+        <Experience />
         <Certificates />
         <Skills />
         <About />

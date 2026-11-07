@@ -1,0 +1,225 @@
+.experience {
+  padding: 120px 0;
+  background: #080808;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.exp-main-title {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-top: 8px;
+}
+
+.exp-subtext {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  max-width: 480px;
+}
+
+/* Timeline */
+.exp-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.exp-card {
+  display: flex;
+  gap: 32px;
+  position: relative;
+}
+
+.exp-node-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.exp-icon-bubble {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #111;
+  border: 1.5px solid var(--exp-accent, #38bdf8);
+  color: var(--exp-accent, #38bdf8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+  z-index: 2;
+  transition: transform 0.25s ease;
+}
+
+.exp-card:hover .exp-icon-bubble {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+}
+
+.exp-line-stem {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(180deg, var(--exp-accent, #38bdf8) 0%, rgba(255, 255, 255, 0.08) 100%);
+  margin-top: 8px;
+  margin-bottom: -16px;
+}
+
+.exp-body {
+  flex: 1;
+  background: #0e0e0e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--exp-accent, #38bdf8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.exp-card:hover .exp-body {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateX(4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.exp-card:hover .exp-body::before {
+  opacity: 1;
+}
+
+.exp-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.exp-company-tag {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--exp-accent, #38bdf8);
+  font-weight: 700;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+.exp-role-title {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  color: #fff;
+  line-height: 1.25;
+}
+
+.exp-time-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.exp-duration {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.exp-type-pill {
+  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+/* Bullets */
+.exp-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exp-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #94a3b8;
+}
+
+.bullet-check {
+  color: var(--exp-accent, #38bdf8);
+  font-size: 0.8rem;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+/* Chips */
+.exp-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.exp-chip {
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .exp-card {
+    gap: 16px;
+  }
+  .exp-icon-bubble {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  .exp-body {
+    padding: 20px;
+  }
+  .exp-time-badge {
+    align-items: flex-start;
+  }
+}
