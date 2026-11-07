@@ -72,7 +72,7 @@
   overflow: hidden; max-height: 0;
   transition: max-height 0.4s ease;
 }
-.mobile-menu.open { max-height: 420px; }
+.mobile-menu.open { max-height: 600px; }
 .mobile-menu a {
   padding: 20px 0;
   font-family: var(--serif);

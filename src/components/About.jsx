@@ -34,6 +34,7 @@ export default function About() {
         {/* Left column: Photo + Status */}
         <div className="about-left-col">
           <span className="label">BIOGRAPHY</span>
+          <h1 className="sr-only">About Subham Kumar Nayak</h1>
           <div className="about-photo-wrap">
             <img
               src="/subham-photo.jpg"
