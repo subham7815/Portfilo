@@ -2,6 +2,14 @@ import { useState } from 'react'
 import { FaCheckCircle, FaAward, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
 import './Certificates.css'
 
+function OracleLogo() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style={{ verticalAlign: 'middle', marginRight: '6px', color: '#f80000' }}>
+      <path d="M16.284 19.349H7.716C3.454 19.349 0 15.895 0 11.633s3.454-7.716 7.716-7.716h8.568c4.262 0 7.716 3.454 7.716 7.716s-3.454 7.716-7.716 7.716zM7.716 6.368c-2.908 0-5.265 2.357-5.265 5.265s2.357 5.265 5.265 5.265h8.568c2.908 0 5.265-2.357 5.265-5.265s-2.357-5.265-5.265-5.265H7.716z"/>
+    </svg>
+  )
+}
+
 function ServiceNowLogo() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em" style={{ verticalAlign: 'middle', marginRight: '6px' }}>
@@ -11,6 +19,20 @@ function ServiceNowLogo() {
 }
 
 const certificates = [
+  {
+    id: 'oracle-ai',
+    title: 'Agentic AI Certified Foundations Associate',
+    issuer: 'Oracle',
+    type: 'Official Oracle Certification',
+    date: 'Oct 31, 2026 · Valid thru 2028',
+    certId: '103571559AAI26OFA',
+    image: '/certificates/oracle-agentic-ai.jpg',
+    accent: '#f97316',
+    description: 'Official Oracle certification validating foundational mastery of Agentic AI, autonomous agent design, multi-agent frameworks, tool use, memory architecture, and prompt engineering.',
+    skills: ['Agentic AI', 'Autonomous Systems', 'Multi-Agent Workflows', 'Oracle Cloud AI', 'LLM Agents'],
+    link: 'https://www.linkedin.com/in/subham7815/',
+    featured: true,
+  },
   {
     id: 'csa',
     title: 'Certified System Administrator (CSA)',
@@ -22,6 +44,7 @@ const certificates = [
     description: 'Validates comprehensive expertise in Now Platform configuration, user role security, CMDB architecture, schema modeling, Flow Designer automation, and business rule orchestration.',
     skills: ['Platform Administration', 'Flow Designer', 'CMDB', 'User Security', 'Business Rules'],
     link: 'https://www.linkedin.com/in/subham7815/',
+    featured: true,
   },
   {
     id: 'cad',
@@ -34,6 +57,7 @@ const certificates = [
     description: 'Validates enterprise application development, custom scoped apps, client/server scripting (GlideRecord, GlideSystem, Script Includes), REST/SOAP integrations, and Automated Test Framework (ATF).',
     skills: ['Scoped Applications', 'Script Includes', 'GlideScript', 'REST Integrations', 'ATF Testing'],
     link: 'https://www.linkedin.com/in/subham7815/',
+    featured: true,
   },
   {
     id: 'ai-doc',
@@ -46,41 +70,107 @@ const certificates = [
     description: 'Hands-on production engineering in Optical Character Recognition (OCR), Vision Language Models (VLM), multimodal document understanding, and PyTorch deep learning pipelines.',
     skills: ['Document AI', 'OCR Pipelines', 'Vision Models (VLM)', 'PyTorch', 'OpenCV'],
     link: 'https://www.linkedin.com/in/subham7815/',
+    featured: false,
+  },
+  {
+    id: 'infosys',
+    title: 'Introduction to Data Science',
+    issuer: 'Infosys Springboard',
+    type: 'Professional Credential',
+    date: 'Completed',
+    image: '/certificates/infosys-data-science.svg',
+    accent: '#007cc3',
+    description: 'Certification covering statistical inference, exploratory data analysis, Pandas/NumPy computational workflows, predictive modeling foundations, and data storytelling.',
+    skills: ['Data Science', 'Exploratory Analysis', 'Pandas & NumPy', 'Statistical Modeling'],
+    link: 'https://www.linkedin.com/in/subham7815/',
+    featured: false,
+  },
+  {
+    id: 'deloitte',
+    title: 'Data Analytics Job Simulation',
+    issuer: 'Deloitte',
+    type: 'Virtual Experience Simulation',
+    date: 'Completed',
+    image: '/certificates/deloitte-analytics.svg',
+    accent: '#22c55e',
+    description: 'Completed corporate business analytics simulation involving dataset hygiene, forensic data investigation, executive dashboarding, and actionable client recommendations.',
+    skills: ['Business Analytics', 'Forensic Data', 'Data Visualization', 'Client Advisory'],
+    link: 'https://www.linkedin.com/in/subham7815/',
+    featured: false,
+  },
+  {
+    id: 'hackerrank',
+    title: 'Frontend Developer (React)',
+    issuer: 'HackerRank',
+    type: 'Verified Skills Assessment',
+    date: 'Certified',
+    image: '/certificates/hackerrank-react.svg',
+    accent: '#00EA64',
+    description: 'Standardized assessment evaluating production React proficiency: functional components, custom hooks, context API, state synchronization, and DOM performance optimization.',
+    skills: ['React.js', 'State Optimization', 'Custom Hooks', 'Component Architecture'],
+    link: 'https://www.linkedin.com/in/subham7815/',
+    featured: false,
   },
   {
     id: 'btech-cse',
     title: 'B.Tech — Computer Science & Engineering',
     issuer: 'SOA University (ITER)',
     type: 'Undergraduate Degree',
-    date: 'Graduate',
+    date: 'Graduate · CGPA: 7.6',
     image: '/certificates/soa-university.svg',
     accent: '#60a5fa',
-    description: 'Rigorous engineering curriculum covering core Computer Science: Data Structures & Algorithms, Operating Systems, Database Management Systems, System Architecture, and Software Engineering.',
+    description: 'Four-year engineering degree covering core Computer Science: Data Structures & Algorithms, Operating Systems, Database Management Systems, System Architecture, and Software Engineering.',
     skills: ['Algorithms & Data Structures', 'Operating Systems', 'DBMS', 'OOP System Design'],
     link: 'https://www.linkedin.com/in/subham7815/',
+    featured: false,
   },
 ]
 
 export default function Certificates() {
   const [selectedCert, setSelectedCert] = useState(null)
+  const [filter, setFilter] = useState('All')
+
+  const filterCategories = ['All', 'Official Certifications', 'AI & Data Science', 'Academic & Virtual']
+
+  const filtered = certificates.filter(c => {
+    if (filter === 'All') return true
+    if (filter === 'Official Certifications') return c.issuer === 'Oracle' || c.issuer === 'ServiceNow' || c.issuer === 'HackerRank'
+    if (filter === 'AI & Data Science') return c.id === 'oracle-ai' || c.id === 'ai-doc' || c.id === 'infosys' || c.id === 'deloitte'
+    if (filter === 'Academic & Virtual') return c.id === 'btech-cse' || c.id === 'deloitte' || c.id === 'ai-doc'
+    return true
+  })
 
   return (
     <section id="certificates" className="certificates">
       <div className="container cert-header">
         <div>
-          <span className="label">CREDENTIALS &amp; ACADEMICS</span>
-          <h2 className="cert-main-title">Professional Certifications</h2>
+          <span className="label">LINKEDIN &amp; INDUSTRY CREDENTIALS</span>
+          <h2 className="cert-main-title">Licenses &amp; Certifications</h2>
         </div>
         <p className="cert-subtext">
-          Officially verified industry credentials in ServiceNow enterprise architecture, AI/ML engineering, and Computer Science.
+          Verified professional credentials uploaded on LinkedIn, spanning Oracle Agentic AI, ServiceNow (CSA &amp; CAD), Document AI, and Computer Science.
         </p>
       </div>
 
+      {/* Filter Tabs */}
+      <div className="container cert-filter-row">
+        {filterCategories.map(cat => (
+          <button
+            key={cat}
+            className={`cert-filter-pill ${filter === cat ? 'active' : ''}`}
+            onClick={() => setFilter(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+        <span className="cert-count-pill">({filtered.length} Credentials)</span>
+      </div>
+
       <div className="container cert-grid">
-        {certificates.map(cert => (
+        {filtered.map(cert => (
           <div
             key={cert.id}
-            className="cert-card"
+            className={`cert-card ${cert.featured ? 'is-featured-cert' : ''}`}
             style={{ '--cert-accent': cert.accent }}
           >
             {/* Certificate Preview Image */}
@@ -101,6 +191,9 @@ export default function Certificates() {
               <div className="cert-badge-tag">
                 <FaCheckCircle className="check-icon" /> Verified
               </div>
+              {cert.certId && (
+                <div className="cert-id-tag">ID: {cert.certId}</div>
+              )}
             </div>
 
             {/* Content info */}
@@ -108,9 +201,10 @@ export default function Certificates() {
               <div className="cert-meta-row">
                 <span className="cert-issuer">
                   {cert.issuer === 'ServiceNow' && <ServiceNowLogo />}
+                  {cert.issuer === 'Oracle' && <OracleLogo />}
                   {cert.issuer}
                 </span>
-                <span className="cert-type">{cert.type}</span>
+                <span className="cert-type">{cert.date}</span>
               </div>
 
               <h3 className="cert-title" onClick={() => setSelectedCert(cert)}>
@@ -133,7 +227,7 @@ export default function Certificates() {
                   className="cert-view-btn"
                   onClick={() => setSelectedCert(cert)}
                 >
-                  <FaAward /> View Certificate Image
+                  <FaAward /> View Full Certificate
                 </button>
                 <a
                   href={cert.link}
@@ -141,7 +235,7 @@ export default function Certificates() {
                   rel="noreferrer"
                   className="cert-verify-link"
                 >
-                  Verify on LinkedIn <FaExternalLinkAlt />
+                  View on LinkedIn <FaExternalLinkAlt />
                 </a>
               </div>
             </div>
@@ -170,7 +264,10 @@ export default function Certificates() {
             <div className="cert-modal-footer">
               <div>
                 <h4>{selectedCert.title}</h4>
-                <p>{selectedCert.issuer} · {selectedCert.type}</p>
+                <p>
+                  {selectedCert.issuer} · {selectedCert.type}
+                  {selectedCert.certId ? ` · ID: ${selectedCert.certId}` : ''}
+                </p>
               </div>
               <a
                 href={selectedCert.link}
@@ -178,7 +275,7 @@ export default function Certificates() {
                 rel="noreferrer"
                 className="btn-pill"
               >
-                LinkedIn Profile ↗
+                Verify on LinkedIn ↗
               </a>
             </div>
           </div>

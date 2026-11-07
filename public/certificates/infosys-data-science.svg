@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="infyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#051c2e"/>
+      <stop offset="100%" stop-color="#020d17"/>
+    </linearGradient>
+    <linearGradient id="infyBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#007cc3"/>
+      <stop offset="100%" stop-color="#005a92"/>
+    </linearGradient>
+    <linearGradient id="infyGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="700" height="480" rx="16" fill="url(#infyBg)" stroke="#007cc3" stroke-width="2"/>
+  <rect x="12" y="12" width="676" height="456" rx="12" fill="none" stroke="rgba(0,124,195,0.2)" stroke-width="1" stroke-dasharray="6 4"/>
+
+  <!-- Top Logo Banner -->
+  <g transform="translate(45, 40)">
+    <circle cx="28" cy="28" r="24" fill="url(#infyBlue)"/>
+    <text x="28" y="36" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="900" fill="#fff">infy</text>
+    <text x="65" y="24" font-family="sans-serif" font-size="14" font-weight="800" letter-spacing="3" fill="#38bdf8">INFOSYS SPRINGBOARD</text>
+    <text x="65" y="42" font-family="sans-serif" font-size="11" font-weight="600" letter-spacing="1.5" fill="#94a3b8">PROFESSIONAL LEARNING CERTIFICATION</text>
+  </g>
+
+  <!-- Verified Badge -->
+  <g transform="translate(540, 35)">
+    <rect width="115" height="32" rx="16" fill="rgba(0,124,195,0.15)" stroke="#007cc3"/>
+    <circle cx="20" cy="16" r="6" fill="#007cc3"/>
+    <text x="17" y="19" font-family="sans-serif" font-size="9" fill="#fff" font-weight="900">✓</text>
+    <text x="35" y="20" font-family="sans-serif" font-size="10" font-weight="700" fill="#38bdf8">VERIFIED</text>
+  </g>
+
+  <!-- Title -->
+  <text x="45" y="145" font-family="sans-serif" font-size="11" letter-spacing="3" font-weight="700" fill="#cbd5e1">COURSE COMPLETION CERTIFICATE</text>
+  <text x="45" y="185" font-family="serif" font-size="30" font-weight="700" fill="#ffffff">Introduction to Data Science</text>
+  <text x="45" y="215" font-family="sans-serif" font-size="16" font-weight="700" fill="#38bdf8">Infosys Springboard</text>
+
+  <!-- Recipient -->
+  <text x="45" y="260" font-family="sans-serif" font-size="11" letter-spacing="2" fill="#64748b">AWARDED TO</text>
+  <text x="45" y="295" font-family="serif" font-size="26" font-weight="700" fill="#f1f5f9">Subham Kumar Nayak</text>
+
+  <!-- Description -->
+  <text x="45" y="340" font-family="sans-serif" font-size="11" fill="#94a3b8">
+    Demonstrated core competence in Data Exploration, Statistical Analysis, Data Visualization,
+  </text>
+  <text x="45" y="360" font-family="sans-serif" font-size="11" fill="#94a3b8">
+    Predictive Modeling concepts, and Python data structures for real-world analytical problems.
+  </text>
+
+  <line x1="45" y1="395" x2="655" y2="395" stroke="rgba(255,255,255,0.08)"/>
+
+  <text x="45" y="430" font-family="sans-serif" font-size="10" fill="#64748b">PROGRAM</text>
+  <text x="45" y="448" font-family="sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Infosys Springboard Digital</text>
+
+  <text x="280" y="430" font-family="sans-serif" font-size="10" fill="#64748b">FOCUS</text>
+  <text x="280" y="448" font-family="sans-serif" font-size="12" font-weight="600" fill="#38bdf8">Data Analytics &amp; Python</text>
+
+  <!-- Seal -->
+  <g transform="translate(565, 385)">
+    <circle cx="45" cy="45" r="32" fill="url(#infyGold)"/>
+    <circle cx="45" cy="45" r="28" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="3 2"/>
+    <text x="45" y="42" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="900" fill="#78350f">INFOSYS</text>
+    <text x="45" y="54" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="900" fill="#78350f">HONORS</text>
+  </g>
+</svg>
