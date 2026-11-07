@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import Loader from './components/Loader'
 import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -11,6 +12,8 @@ import Footer from './components/Footer'
 import './index.css'
 
 function App() {
+  const [loading, setLoading] = useState(true)
+
   /* Intersection Observer for .fade-up elements */
   useEffect(() => {
     const observe = () => {
@@ -30,6 +33,7 @@ function App() {
 
   return (
     <>
+      {loading && <Loader onDone={() => setLoading(false)} />}
       <Cursor />
       <Navbar />
       <main>
