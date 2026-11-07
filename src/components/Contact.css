@@ -1,0 +1,109 @@
+.contact {
+  padding: 160px 0;
+  background: var(--black2);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.contact-heading {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4.5vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--white);
+  margin: 24px 0 40px;
+}
+.contact-heading em { font-style: italic; color: var(--accent); }
+
+.contact-email {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--white);
+  margin-bottom: 16px;
+  transition: color 0.2s;
+}
+.contact-email:hover { color: var(--accent); }
+
+.contact-note {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+/* Form */
+.contact-form {
+  display: flex; flex-direction: column; gap: 28px;
+}
+
+.field {
+  display: flex; flex-direction: column; gap: 8px;
+}
+
+.field label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field input,
+.field textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--muted2);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 1rem;
+  padding: 12px 0;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+}
+
+.field input::placeholder,
+.field textarea::placeholder { color: var(--muted2); }
+
+.field input:focus,
+.field textarea:focus { border-color: var(--white); }
+
+.contact-submit {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid var(--muted2);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  padding: 14px 32px;
+  border-radius: 999px;
+  cursor: none;
+  transition: background 0.25s, border-color 0.25s;
+}
+.contact-submit:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+.contact-submit:disabled { opacity: 0.5; cursor: default; }
+
+/* Sent state */
+.sent-state {
+  display: flex; flex-direction: column; gap: 20px;
+  padding: 60px 0;
+}
+
+.sent-icon {
+  font-size: 2.5rem;
+  color: var(--accent);
+}
+
+.sent-state p {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .contact-inner { grid-template-columns: 1fr; gap: 60px; }
+}

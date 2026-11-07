@@ -1,0 +1,96 @@
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grain overlay */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.hero > * { position: relative; z-index: 1; }
+
+/* Meta */
+.hero-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 80px;
+}
+
+/* Headline */
+.hero-headline-wrap {
+  flex: 1; display: flex; align-items: center;
+}
+
+.hero-headline {
+  font-family: var(--serif);
+  font-size: clamp(4rem, 9.5vw, 10rem);
+  line-height: 1.0;
+  color: var(--white);
+  display: flex; flex-direction: column;
+  gap: 0;
+}
+
+.hero-headline .line { display: block; }
+.hero-headline .italic { font-style: italic; color: var(--accent); }
+
+/* Bottom */
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 340px;
+}
+
+.hero-scroll-cue a {
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 8px;
+  color: var(--muted); font-size: 0.8rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  cursor: pointer; transition: color 0.2s;
+}
+.hero-scroll-cue a:hover { color: var(--white); }
+
+.scroll-arrow {
+  font-size: 1.5rem;
+  display: block;
+  animation: nudge 2s ease-in-out infinite;
+}
+
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+.hero-line {
+  position: absolute; bottom: 0; left: 40px; right: 40px;
+  height: 1px; background: var(--line);
+}
+
+@media (max-width: 768px) {
+  .hero { padding-top: 100px; }
+  .hero-headline { font-size: clamp(3rem, 12vw, 5rem); }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .hero-scroll-cue a { align-items: flex-start; }
+}
