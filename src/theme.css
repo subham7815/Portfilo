@@ -1,0 +1,114 @@
+/* ============================================================
+   THEME: royal blue + yellow + off-white paper (Behance-style)
+   ============================================================ */
+
+h1, h2, h3, h4 { font-weight: 700 !important; }
+.hero-title { font-weight: 800 !important; }
+body { font-family: var(--sans); }
+
+/* ---------- pills, tags ---------- */
+.pill { display: inline-flex; align-items: center; padding: 7px 18px; border: 1.5px solid currentColor; border-radius: 999px; font-size: .85rem; font-weight: 500; color: #fff; background: transparent; }
+.paper .pill, .paper-scope .pill { color: var(--blue); }
+.pill.solid { background: var(--blue); color: #fff; border-color: var(--blue); }
+.brush-tag { display: inline-block; background: var(--blue); color: #fff; padding: 12px 56px 12px 28px; font-weight: 700; font-size: 1.3rem;
+  clip-path: polygon(0 8%, 6% 0, 40% 6%, 75% 0, 96% 8%, 100% 45%, 94% 80%, 98% 100%, 55% 94%, 20% 100%, 0 90%, 3% 50%); }
+.hand { font-family: var(--hand); font-weight: 400; }
+
+/* ---------- torn paper (clip-path jagged edges) ---------- */
+.paper { position: relative; background-color: var(--black); margin-top: 18px;
+  background-image: radial-gradient(rgba(13,18,64,.05) 1px, transparent 1px); background-size: 22px 22px;
+  clip-path: polygon(0.0% 9px, 2.27% 15px, 4.55% 10px, 6.82% 15px, 9.09% 16px, 11.36% 14px, 13.64% 9px, 15.91% 9px, 18.18% 10px, 20.45% 15px, 22.73% 11px, 25.0% 5px, 27.27% 4px, 29.55% 14px, 31.82% 10px, 34.09% 9px, 36.36% 12px, 38.64% 11px, 40.91% 14px, 43.18% 4px, 45.45% 3px, 47.73% 9px, 50.0% 6px, 52.27% 4px, 54.55% 3px, 56.82% 10px, 59.09% 14px, 61.36% 16px, 63.64% 13px, 65.91% 12px, 68.18% 2px, 70.45% 11px, 72.73% 8px, 75.0% 9px, 77.27% 12px, 79.55% 13px, 81.82% 11px, 84.09% 12px, 86.36% 4px, 88.64% 11px, 90.91% 2px, 93.18% 15px, 95.45% 10px, 97.73% 3px, 100.0% 2px, 100.0% calc(100% - 2px), 97.73% calc(100% - 5px), 95.45% calc(100% - 16px), 93.18% calc(100% - 5px), 90.91% calc(100% - 11px), 88.64% calc(100% - 2px), 86.36% calc(100% - 14px), 84.09% calc(100% - 9px), 81.82% calc(100% - 7px), 79.55% calc(100% - 9px), 77.27% calc(100% - 11px), 75.0% calc(100% - 15px), 72.73% calc(100% - 5px), 70.45% calc(100% - 10px), 68.18% calc(100% - 5px), 65.91% calc(100% - 12px), 63.64% calc(100% - 6px), 61.36% calc(100% - 9px), 59.09% calc(100% - 2px), 56.82% calc(100% - 12px), 54.55% calc(100% - 3px), 52.27% calc(100% - 9px), 50.0% calc(100% - 12px), 47.73% calc(100% - 6px), 45.45% calc(100% - 8px), 43.18% calc(100% - 10px), 40.91% calc(100% - 16px), 38.64% calc(100% - 15px), 36.36% calc(100% - 3px), 34.09% calc(100% - 13px), 31.82% calc(100% - 6px), 29.55% calc(100% - 7px), 27.27% calc(100% - 14px), 25.0% calc(100% - 5px), 22.73% calc(100% - 10px), 20.45% calc(100% - 6px), 18.18% calc(100% - 2px), 15.91% calc(100% - 3px), 13.64% calc(100% - 11px), 11.36% calc(100% - 14px), 9.09% calc(100% - 3px), 6.82% calc(100% - 8px), 4.55% calc(100% - 3px), 2.27% calc(100% - 15px), 0.0% calc(100% - 6px)); padding: 40px 0 60px; }
+.paper > * { position: relative; z-index: 1; }
+.band { position: relative; }
+.band.paper { margin-top: 0; }
+.band.paper.alt { clip-path: polygon(0.0% 8px, 2.27% 3px, 4.55% 2px, 6.82% 15px, 9.09% 12px, 11.36% 2px, 13.64% 5px, 15.91% 5px, 18.18% 16px, 20.45% 16px, 22.73% 2px, 25.0% 9px, 27.27% 8px, 29.55% 13px, 31.82% 8px, 34.09% 8px, 36.36% 3px, 38.64% 11px, 40.91% 12px, 43.18% 5px, 45.45% 14px, 47.73% 12px, 50.0% 6px, 52.27% 7px, 54.55% 3px, 56.82% 6px, 59.09% 7px, 61.36% 2px, 63.64% 8px, 65.91% 14px, 68.18% 16px, 70.45% 3px, 72.73% 4px, 75.0% 5px, 77.27% 13px, 79.55% 3px, 81.82% 2px, 84.09% 2px, 86.36% 9px, 88.64% 14px, 90.91% 9px, 93.18% 4px, 95.45% 12px, 97.73% 10px, 100.0% 5px, 100.0% calc(100% - 9px), 97.73% calc(100% - 10px), 95.45% calc(100% - 5px), 93.18% calc(100% - 13px), 90.91% calc(100% - 14px), 88.64% calc(100% - 4px), 86.36% calc(100% - 8px), 84.09% calc(100% - 12px), 81.82% calc(100% - 8px), 79.55% calc(100% - 3px), 77.27% calc(100% - 8px), 75.0% calc(100% - 8px), 72.73% calc(100% - 5px), 70.45% calc(100% - 2px), 68.18% calc(100% - 6px), 65.91% calc(100% - 15px), 63.64% calc(100% - 14px), 61.36% calc(100% - 11px), 59.09% calc(100% - 6px), 56.82% calc(100% - 16px), 54.55% calc(100% - 2px), 52.27% calc(100% - 5px), 50.0% calc(100% - 4px), 47.73% calc(100% - 8px), 45.45% calc(100% - 15px), 43.18% calc(100% - 11px), 40.91% calc(100% - 12px), 38.64% calc(100% - 11px), 36.36% calc(100% - 3px), 34.09% calc(100% - 2px), 31.82% calc(100% - 4px), 29.55% calc(100% - 5px), 27.27% calc(100% - 9px), 25.0% calc(100% - 6px), 22.73% calc(100% - 2px), 20.45% calc(100% - 14px), 18.18% calc(100% - 11px), 15.91% calc(100% - 7px), 13.64% calc(100% - 15px), 11.36% calc(100% - 6px), 9.09% calc(100% - 8px), 6.82% calc(100% - 3px), 4.55% calc(100% - 3px), 2.27% calc(100% - 3px), 0.0% calc(100% - 5px)); }
+.band.blue { padding: 90px 0; }
+
+/* ---------- polaroid, tape, clips, doodles ---------- */
+.polaroid { position: relative; background: #fff; padding: 14px 14px 52px; border-radius: 6px; box-shadow: 8px 8px 0 rgba(26,43,214,.22), 0 0 0 1px rgba(13,18,64,.08); transform: rotate(-3deg); }
+.polaroid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; filter: grayscale(1) contrast(1.05); background: var(--blue); }
+.polaroid figcaption { position: absolute; left: 0; right: 0; bottom: 10px; text-align: center; font-family: var(--hand); font-size: 1.5rem; color: var(--blue); }
+.tape { position: absolute; top: -16px; left: 50%; width: 110px; height: 30px; margin-left: -55px; background: rgba(26,43,214,.85); transform: rotate(-4deg); z-index: 2; box-shadow: 0 2px 0 rgba(0,0,0,.12); }
+.clip { position: absolute; top: -22px; width: 44px; z-index: 3; }
+.doodle { display: block; pointer-events: none; }
+.squiggle { width: 100%; height: 8px; display: block; }
+
+/* ---------- navbar: solid blue strip, white links, yellow CTA ---------- */
+.navbar { background: #1a2bd6; border-bottom: 2px solid rgba(255,255,255,.18); }
+.navbar.scrolled { background: #1a2bd6; box-shadow: 0 6px 0 rgba(6,10,70,.25); }
+.nav-logo { font-family: var(--hand); font-size: 1.8rem !important; color: #fff; letter-spacing: .01em; }
+.nav-logo span { color: var(--yellow); }
+.nav-links a { color: #fff; font-weight: 500; text-transform: none; font-size: .95rem; letter-spacing: 0; position: relative; padding: 4px 2px; }
+.nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; height: 4px; width: 100%; background: var(--yellow); border-radius: 4px; transform: scaleX(0); transform-origin: left; transition: transform .25s; }
+.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+.nav-cta { background: var(--yellow); color: var(--ink) !important; padding: 9px 20px; border-radius: 999px; font-weight: 700; }
+.nav-cta:hover { background: #fff; }
+.mobile-menu a { font-family: var(--hand); color: #fff; }
+.hamburger span { background: #fff; }
+
+/* ---------- buttons ---------- */
+.cta-btn { display: inline-flex; align-items: center; padding: 12px 26px; border-radius: 999px; font-weight: 700; font-size: .92rem; transition: transform .2s, background .2s, color .2s; }
+.cta-btn.primary { background: var(--yellow); color: var(--ink); box-shadow: 4px 4px 0 rgba(6,10,70,.45); }
+.cta-btn.primary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 rgba(6,10,70,.45); }
+.cta-btn.ghost { border: 2px solid #fff; color: #fff; }
+.cta-btn.ghost:hover { background: #fff; color: var(--blue); }
+.paper .cta-btn.ghost, .paper-scope .cta-btn.ghost { border-color: var(--blue); color: var(--blue); }
+.paper .cta-btn.ghost:hover { background: var(--blue); color: #fff; }
+
+/* ---------- loader ---------- */
+.loader { background: #1a2bd6; }
+.loader-num { font-family: var(--hand); color: #fff; }
+.loader-pct { color: var(--yellow); font-family: var(--hand); }
+.loader-bar { height: 6px; border-radius: 6px; background: rgba(255,255,255,.25); }
+.loader-fill { background: var(--yellow); }
+.loader-label { color: #fff; }
+
+/* ---------- footer ---------- */
+.footer { background: #0b138a; border-top: 0; margin-top: 40px; padding-top: 30px; }
+.footer-logo { font-family: var(--hand); font-size: 1.8rem; color: #fff; }
+.footer-logo em { color: var(--yellow); }
+.footer-role, .footer-copy { color: var(--muted); }
+.footer-links a, .footer-nav a { color: #fff; }
+.footer-links a:hover, .footer-nav a:hover { color: var(--yellow); }
+.to-top { background: var(--yellow); color: var(--ink); border: 0; border-radius: 50%; box-shadow: 4px 4px 0 rgba(6,10,70,.5); }
+.to-top:hover { background: #fff; color: var(--blue); }
+
+/* ---------- headings & labels ---------- */
+.label { color: var(--yellow); font-family: var(--hand); font-size: 1.35rem; letter-spacing: .02em; text-transform: none; font-weight: 400; }
+.label::before { display: none; }
+.paper .label, .paper-scope .label { color: var(--blue); }
+.work-main-title, .exp-main-title, .cert-main-title, .skills-main-title, .contact-heading, .about-h3, .hs-title { font-weight: 700; letter-spacing: -.02em; }
+.paper .work-main-title, .paper .exp-main-title, .paper .cert-main-title, .paper .about-h3, .paper .hs-title { color: var(--blue); }
+.contact-heading em { font-style: normal; color: var(--yellow); }
+
+.paper > div > section, .paper > section { padding-top: 70px; }
+.paper .work, .paper .experience, .paper .certificates, .paper .about { background: transparent; border: 0; }
+
+.card, .hs-card, .skill-cat-card, .work-card, .cert-card, .exp-card .exp-body, .contact-form { box-shadow: var(--shadow-card); }
+
+/* skills & contact titles on paper */
+.paper .skills-main-title, .paper .contact-heading { color: var(--blue); }
+.paper .contact-heading em { color: var(--blue); text-decoration: underline wavy var(--yellow) 3px; text-underline-offset: 8px; }
+.paper .contact-note, .paper .skills-subtext { color: var(--muted); }
+
+.footer-nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer-nav a { font-size: .9rem; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.paper .learning-chip:nth-child(even), .paper .interest-chip:nth-child(even) { color: var(--ink); background: #fff6c2; border-color: #e6b800; }
+.paper .contact-tile b, .paper .exp-company-tag { color: var(--blue); }
+.paper .way-card:nth-child(even), .paper .bring-card:nth-child(even) { border-top-color: #e6b800; }
+
+/* paper-page legibility fixes */
+.paper .grad-text { background: none; -webkit-text-fill-color: currentColor; color: var(--blue); }
+.paper .about-h3 .grad-text { background: linear-gradient(transparent 62%, var(--yellow) 62%); color: var(--blue); }
+.paper .fact:nth-child(even) .fact-num, .paper .fact:nth-child(odd) .fact-num { color: var(--blue); }
+.about-photo-badge { background: var(--blue-deep) !important; color: #fff !important; }
+.paper .work-card .work-card-cat { color: var(--blue) !important; }
+.paper .work-card-id { background: #fff; color: var(--blue); }
+.work-stat > span { font-size: .72rem; }
+.work-stat b span, .focus-card b span, .cert-sum-card b span { font-size: inherit; letter-spacing: 0; text-transform: none; color: inherit; }
+.work-stat b { font-family: var(--hand); font-weight: 400; font-size: 2.2rem; color: var(--blue); }
+.paper .tech-chip, .paper .cert-skill-tag, .paper .exp-chip { color: var(--ink); }
+.paper .cert-badge-tag { background: var(--yellow); color: var(--ink); }
+.paper .cert-id-tag { background: #fff; color: var(--ink); }
+.paper .cert-modal-box { background: #fff; }
+.cert-sum-card b { font-family: var(--hand); font-weight: 400; color: var(--blue); font-size: 2.2rem; }

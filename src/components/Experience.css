@@ -1,6 +1,6 @@
 .experience {
   padding: 120px 0;
-  background: #080808;
+  background: transparent;
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -25,7 +25,7 @@
 .exp-subtext {
   font-size: 0.95rem;
   line-height: 1.7;
-  color: #94a3b8;
+  color: var(--muted);
   max-width: 480px;
 }
 
@@ -56,34 +56,34 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #111;
-  border: 1.5px solid var(--exp-accent, #38bdf8);
-  color: var(--exp-accent, #38bdf8);
+  background: var(--surface);
+  border: 1.5px solid var(--exp-accent, var(--amber));
+  color: var(--exp-accent, var(--amber));
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+  box-shadow: 0 0 20px rgba(255, 214, 10, 0.15);
   z-index: 2;
   transition: transform 0.25s ease;
 }
 
 .exp-card:hover .exp-icon-bubble {
   transform: scale(1.1);
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 25px rgba(255, 214, 10, 0.35);
 }
 
 .exp-line-stem {
   width: 2px;
   flex: 1;
-  background: linear-gradient(180deg, var(--exp-accent, #38bdf8) 0%, rgba(255, 255, 255, 0.08) 100%);
+  background: linear-gradient(180deg, var(--exp-accent, var(--amber)) 0%, rgba(255, 255, 255, 0.08) 100%);
   margin-top: 8px;
   margin-bottom: -16px;
 }
 
 .exp-body {
   flex: 1;
-  background: #0e0e0e;
+  background: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: 32px;
@@ -102,7 +102,7 @@
   left: 0;
   width: 3px;
   height: 100%;
-  background: var(--exp-accent, #38bdf8);
+  background: var(--exp-accent, var(--amber));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -110,7 +110,7 @@
 .exp-card:hover .exp-body {
   border-color: rgba(255, 255, 255, 0.18);
   transform: translateX(4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
 .exp-card:hover .exp-body::before {
@@ -129,7 +129,7 @@
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--exp-accent, #38bdf8);
+  color: var(--exp-accent, var(--amber));
   font-weight: 700;
   margin-bottom: 4px;
   display: inline-block;
@@ -138,7 +138,7 @@
 .exp-role-title {
   font-family: var(--serif);
   font-size: 1.45rem;
-  color: #fff;
+  color: var(--white);
   line-height: 1.25;
 }
 
@@ -151,7 +151,7 @@
 
 .exp-duration {
   font-size: 0.85rem;
-  color: #cbd5e1;
+  color: var(--text2);
   font-weight: 600;
   letter-spacing: 0.02em;
 }
@@ -160,7 +160,7 @@
   font-size: 0.7rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #94a3b8;
+  color: var(--muted);
   padding: 2px 8px;
   border-radius: 999px;
   letter-spacing: 0.02em;
@@ -179,11 +179,11 @@
   gap: 10px;
   font-size: 0.92rem;
   line-height: 1.65;
-  color: #94a3b8;
+  color: var(--muted);
 }
 
 .bullet-check {
-  color: var(--exp-accent, #38bdf8);
+  color: var(--exp-accent, var(--amber));
   font-size: 0.8rem;
   margin-top: 5px;
   flex-shrink: 0;
@@ -200,7 +200,7 @@
 
 .exp-chip {
   font-size: 0.72rem;
-  color: #cbd5e1;
+  color: var(--text2);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 4px 10px;

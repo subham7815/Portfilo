@@ -1,6 +1,6 @@
 .about {
   padding: 140px 0;
-  background: #080808;
+  background: transparent;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -24,8 +24,8 @@
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #111;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  background: var(--surface);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
 }
 
 .about-photo-img {
@@ -46,8 +46,7 @@
   bottom: 12px;
   left: 12px;
   right: 12px;
-  background: rgba(8, 8, 8, 0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(11, 19, 138, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 8px 12px;
   border-radius: 999px;
@@ -55,7 +54,7 @@
   align-items: center;
   gap: 8px;
   font-size: 0.72rem;
-  color: #f1f5f9;
+  color: var(--white);
   font-weight: 500;
 }
 
@@ -63,8 +62,8 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 8px #10b981;
+  background: var(--amber);
+  box-shadow: 0 0 8px var(--amber);
   animation: pulse-dot 2s infinite;
   flex-shrink: 0;
 }
@@ -78,12 +77,12 @@
 }
 
 .about-bio strong {
-  color: #fff;
+  color: var(--white);
 }
 
 .about-bio em {
   font-style: italic;
-  color: #38bdf8;
+  color: var(--amber);
 }
 
 .about-facts {
@@ -105,7 +104,7 @@
 .fact-num {
   font-family: var(--serif);
   font-size: clamp(1.8rem, 3vw, 2.4rem);
-  color: #fff;
+  color: var(--white);
   line-height: 1;
 }
 
@@ -125,7 +124,7 @@
 
 .about-link {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: var(--muted);
   letter-spacing: 0.04em;
   padding: 10px 18px;
   border-radius: 999px;
@@ -135,23 +134,23 @@
 }
 
 .about-link:hover {
-  color: #fff;
-  border-color: #38bdf8;
-  background: rgba(56, 189, 248, 0.08);
+  color: var(--white);
+  border-color: var(--amber);
+  background: rgba(255, 214, 10, 0.08);
   transform: translateY(-2px);
 }
 
 .about-link.highlight {
-  background: #38bdf8;
-  color: #041019;
-  border-color: #38bdf8;
+  background: var(--amber);
+  color: var(--on-accent);
+  border-color: var(--amber);
   font-weight: 700;
 }
 
 .about-link.highlight:hover {
-  background: #60a5fa;
-  border-color: #60a5fa;
-  color: #000;
+  background: #ffe55c;
+  border-color: #ffe55c;
+  color: var(--white);
 }
 
 @media (max-width: 900px) {

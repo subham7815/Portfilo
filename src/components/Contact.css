@@ -1,6 +1,6 @@
 .contact {
   padding: 140px 0;
-  background: #0a0a0a;
+  background: transparent;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -18,7 +18,7 @@
   color: var(--white);
   margin: 20px 0 32px;
 }
-.contact-heading em { font-style: italic; color: #38bdf8; }
+.contact-heading em { font-style: italic; color: var(--amber); }
 
 .contact-meta {
   display: flex;
@@ -38,16 +38,16 @@
   align-items: center;
   gap: 10px;
   font-size: 1.1rem;
-  color: #fff;
+  color: var(--white);
   font-weight: 500;
   transition: color 0.2s;
 }
-.contact-email:hover { color: #38bdf8; }
+.contact-email:hover { color: var(--amber); }
 
 .contact-copy-btn {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #cbd5e1;
+  color: var(--text2);
   font-family: var(--sans);
   font-size: 0.75rem;
   font-weight: 600;
@@ -58,15 +58,15 @@
 }
 
 .contact-copy-btn:hover {
-  background: rgba(56, 189, 248, 0.15);
-  border-color: #38bdf8;
-  color: #fff;
+  background: rgba(255, 214, 10, 0.15);
+  border-color: var(--amber);
+  color: var(--white);
 }
 
 .contact-copy-btn.copied {
-  background: #10b981;
-  border-color: #10b981;
-  color: #042017;
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--on-accent);
   font-weight: 700;
 }
 
@@ -75,11 +75,11 @@
   align-items: center;
   gap: 10px;
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: var(--muted);
 }
 
 .contact-icon {
-  color: #38bdf8;
+  color: var(--amber);
   font-size: 1rem;
 }
 
@@ -103,7 +103,7 @@
   align-items: center;
   gap: 8px;
   font-size: 0.82rem;
-  color: #cbd5e1;
+  color: var(--text2);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 8px 16px;
@@ -112,9 +112,9 @@
 }
 
 .contact-pill-link:hover {
-  background: rgba(56, 189, 248, 0.1);
-  border-color: #38bdf8;
-  color: #fff;
+  background: rgba(255, 214, 10, 0.1);
+  border-color: var(--amber);
+  color: var(--white);
   transform: translateY(-2px);
 }
 
@@ -123,7 +123,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  background: #111;
+  background: var(--surface);
   padding: 40px;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -139,7 +139,7 @@
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #94a3b8;
+  color: var(--muted);
   font-weight: 600;
 }
 
@@ -162,15 +162,15 @@
 
 .field input:focus,
 .field textarea:focus {
-  border-color: #38bdf8;
-  background: rgba(56, 189, 248, 0.03);
+  border-color: var(--amber);
+  background: rgba(255, 214, 10, 0.03);
 }
 
 .contact-submit {
   align-self: flex-start;
-  background: #fff;
+  background: var(--white);
   border: none;
-  color: #000;
+  color: var(--on-accent);
   font-family: var(--sans);
   font-size: 0.9rem;
   font-weight: 700;
@@ -183,9 +183,9 @@
 }
 
 .contact-submit:hover {
-  background: #38bdf8;
+  background: var(--amber);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 8px 24px rgba(255, 214, 10, 0.3);
 }
 
 .contact-submit:disabled {
@@ -199,7 +199,7 @@
   flex-direction: column;
   gap: 20px;
   padding: 60px 40px;
-  background: #111;
+  background: var(--surface);
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
@@ -208,7 +208,7 @@
 
 .sent-icon {
   font-size: 2.5rem;
-  color: #10b981;
+  color: var(--amber);
 }
 
 .sent-state p {

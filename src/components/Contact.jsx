@@ -1,7 +1,23 @@
 import { useState } from 'react'
 import { FaEnvelope, FaLinkedin, FaGithub, FaMapMarkerAlt } from 'react-icons/fa'
 import { SiVercel } from 'react-icons/si'
+import { motion } from 'framer-motion'
+import { Stagger, Item } from './motion'
 import './Contact.css'
+
+const TILES = [
+  { icon: '⚡', label: 'Response time', value: 'Within 24 hours', color: 'var(--amber)' },
+  { icon: '🌍', label: 'Location', value: 'Odisha, India', color: 'var(--steel)' },
+  { icon: '💼', label: 'Open to', value: 'Full-time & Remote', color: 'var(--steel)' },
+  { icon: '🕘', label: 'Timezone', value: 'IST (UTC+5:30)', color: 'var(--amber)' },
+]
+
+const FAQ = [
+  ['Are you open to remote work?', 'Yes. I am open to remote, hybrid and on-site roles.'],
+  ['What roles are you looking for?', 'Full-stack / software engineering, Document AI & OCR work, and ServiceNow development or administration.'],
+  ['Where are you based?', 'Odisha, India (IST, UTC+5:30), comfortable collaborating across time zones.'],
+  ['Can I see your resume?', 'Yes, download it from the Home or About page, or use the LinkedIn link here.'],
+]
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
@@ -57,6 +73,16 @@ export default function Contact() {
             <p className="contact-note">
               Available for software engineering roles, Document AI/OCR research initiatives, and ServiceNow enterprise implementations.
             </p>
+
+            <Stagger className="contact-tiles">
+              {TILES.map(t => (
+                <Item key={t.label} className="contact-tile" style={{ '--t': t.color }}>
+                  <span className="tile-icon">{t.icon}</span>
+                  <b>{t.label}</b>
+                  <span>{t.value}</span>
+                </Item>
+              ))}
+            </Stagger>
 
             <div className="contact-direct-links">
               <a href="https://www.linkedin.com/in/subham7815/" target="_blank" rel="noreferrer" className="contact-pill-link">
@@ -145,6 +171,18 @@ export default function Contact() {
           )}
         </div>
 
+      </div>
+
+      <div className="container contact-faq">
+        <span className="label">FAQ</span>
+        <div className="faq-list">
+          {FAQ.map(([q, a]) => (
+            <details className="faq-item" key={q}>
+              <summary>{q}</summary>
+              <p>{a}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   )

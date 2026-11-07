@@ -1,4 +1,30 @@
+import { motion } from 'framer-motion'
+import { Reveal, Stagger, Item, CountUp } from './motion'
 import './About.css'
+
+// Editable content
+const JOURNEY = [
+  { year: '2022', title: 'Started B.Tech CSE', text: "Siksha 'O' Anusandhan University, ITER, Bhubaneswar.", color: 'var(--amber)' },
+  { year: '2025', title: 'ServiceNow CSA & CAD', text: 'Platform training (Jun-Aug) and two official certifications.', color: 'var(--steel)' },
+  { year: '2026', title: 'AI/ML Intern', text: 'Document AI & OCR validation at KreativeTimebox.', color: 'var(--steel)' },
+  { year: '2026', title: 'Oracle Agentic AI', text: 'Certified in Agentic AI Foundations; graduated with CGPA 7.6.', color: 'var(--amber)' },
+]
+const INTERESTS = ['Document AI', 'Agentic AI', 'Full-Stack Web', 'Enterprise Automation', 'Linux & Systems', 'UI Motion', 'Open Source']
+const QUICK = [
+  ['Location', 'Odisha, India'],
+  ['Degree', 'B.Tech CSE (2022-2026)'],
+  ['University', "Siksha 'O' Anusandhan (ITER)"],
+  ['CGPA', '7.6'],
+  ['Role focus', 'Full-Stack & Document AI'],
+  ['Certifications', 'Oracle, ServiceNow x2, Deloitte, EY, HackerRank'],
+  ['Availability', 'Open to full-time, remote or on-site'],
+  ['Contact', 'nayaksubham551@gmail.com'],
+]
+const VALUES = [
+  { icon: '🧭', title: 'Build with purpose', text: 'Software should solve a real workflow, not just look good in a demo.', color: 'var(--amber)' },
+  { icon: '🔬', title: 'Validate everything', text: 'Test, benchmark and debug until the output can be trusted.', color: 'var(--steel)' },
+  { icon: '🌱', title: 'Keep learning', text: 'Certifications, projects and research keep the stack growing.', color: 'var(--amber)' },
+]
 
 export default function About() {
   return (
@@ -29,7 +55,7 @@ export default function About() {
             <em> intelligent Document AI &amp; OCR pipelines</em>, and <em>enterprise cloud automation</em>.
           </p>
 
-          <p className="about-bio" style={{ fontSize: '1.15rem', color: '#94a3b8', lineHeight: '1.8' }}>
+          <p className="about-bio about-bio-sub">
             Graduated with a B.Tech in Computer Science &amp; Engineering from <strong>Siksha 'O' Anusandhan (SOA) University</strong> (CGPA 7.6).
             During my AI/ML internship at <strong>KreativeTimebox</strong>, I worked on production Document AI processing financial invoices, receipts, and bank statements
             using Optical Character Recognition (OCR), Vision-Language Models (VLM), and PyTorch pipelines.
@@ -43,15 +69,15 @@ export default function About() {
               <span className="fact-label">Agentic AI Certified</span>
             </div>
             <div className="fact">
-              <span className="fact-num">2x</span>
+              <span className="fact-num"><CountUp to={2} suffix="x" /></span>
               <span className="fact-label">ServiceNow (CSA &amp; CAD)</span>
             </div>
             <div className="fact">
-              <span className="fact-num">10+</span>
+              <span className="fact-num"><CountUp to={10} suffix="+" /></span>
               <span className="fact-label">Projects Deployed</span>
             </div>
             <div className="fact">
-              <span className="fact-num">7.6</span>
+              <span className="fact-num"><CountUp to={7.6} decimals={1} /></span>
               <span className="fact-label">SOA B.Tech CSE CGPA</span>
             </div>
           </div>
@@ -72,6 +98,48 @@ export default function About() {
           </div>
         </div>
 
+      </div>
+
+      {/* Journey */}
+      <div className="container about-extra">
+        <Reveal><span className="label">MY JOURNEY</span><h3 className="about-h3">From classroom to <span className="grad-text">production AI</span></h3></Reveal>
+        <Stagger className="journey-grid">
+          {JOURNEY.map(j => (
+            <Item key={j.title} className="journey-card card" style={{ '--j': j.color }}>
+              <span className="journey-year">{j.year}</span>
+              <h4>{j.title}</h4>
+              <p>{j.text}</p>
+            </Item>
+          ))}
+        </Stagger>
+
+        <Reveal className="quick-facts">
+          <span className="label">QUICK FACTS</span>
+          <dl className="quick-grid">
+            {QUICK.map(([k, v]) => (
+              <div className="quick-row" key={k}><dt>{k}</dt><dd>{v}</dd></div>
+            ))}
+          </dl>
+        </Reveal>
+
+        <Reveal className="interests">
+          <span className="label">WHAT I'M INTO</span>
+          <div className="interest-chips">
+            {INTERESTS.map((t, i) => (
+              <motion.span key={t} className="interest-chip" style={{ '--c': JOURNEY[i % JOURNEY.length].color }}>{t}</motion.span>
+            ))}
+          </div>
+        </Reveal>
+
+        <Stagger className="values-grid">
+          {VALUES.map(v => (
+            <Item key={v.title} className="value-card card" style={{ '--j': v.color }}>
+              <span className="value-icon">{v.icon}</span>
+              <h4>{v.title}</h4>
+              <p>{v.text}</p>
+            </Item>
+          ))}
+        </Stagger>
       </div>
     </section>
   )

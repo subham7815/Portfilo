@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { CountUp } from './motion'
 import { FaCheckCircle, FaAward, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
 import './Certificates.css'
 
@@ -180,6 +182,13 @@ export default function Certificates() {
         </p>
       </div>
 
+      {/* Summary */}
+      <div className="container cert-summary">
+        <div className="cert-sum-card" style={{ '--s': '#7c3aed' }}><b><CountUp to={certificates.length} /></b><span>Credentials</span></div>
+        <div className="cert-sum-card" style={{ '--s': '#ec4899' }}><b><CountUp to={new Set(certificates.map(c => c.issuer)).size} /></b><span>Issuers</span></div>
+        <div className="cert-sum-card" style={{ '--s': '#f97316' }}><b>100%</b><span>Verified</span></div>
+      </div>
+
       {/* Filter Tabs */}
       <div className="container cert-filter-row">
         {filterCategories.map(cat => (
@@ -195,9 +204,12 @@ export default function Certificates() {
       </div>
 
       <div className="container cert-grid">
-        {filtered.map(cert => (
-          <div
-            key={cert.id}
+        {filtered.map((cert, i) => (
+          <motion.div
+            key={`${filter}-${cert.id}`}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: Math.min(i * 0.03, 0.25) }}
             className={`cert-card ${cert.featured ? 'is-featured-cert' : ''}`}
             style={{ '--cert-accent': cert.accent }}
           >
@@ -211,6 +223,7 @@ export default function Certificates() {
                 src={cert.image}
                 alt={cert.title}
                 loading="lazy"
+                decoding="async"
                 className="cert-preview-img"
               />
               <div className="cert-media-hover">
@@ -267,7 +280,7 @@ export default function Certificates() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 

@@ -2,28 +2,73 @@
    GLOBAL DESIGN SYSTEM — jonhowell-inspired dark portfolio
    ============================================================ */
 
-@import '@fontsource/dm-serif-display';
-@import '@fontsource/dm-sans/300.css';
-@import '@fontsource/dm-sans/400.css';
-@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+@import '@fontsource/poppins/800.css';
+@import '@fontsource/caveat-brush/400.css';
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-:root {
-  --black:   #080808;
-  --black2:  #0f0f0f;
-  --black3:  #161616;
-  --white:   #f5f5f0;
-  --muted:   #6b6b6b;
-  --muted2:  #3d3d3d;
-  --accent:  #e8e0d0;
-  --line:    rgba(255,255,255,0.08);
+:root, .blue-scope {
+  /* BLUE (default) scope */
+  --black:   #1a2bd6;
+  --black2:  #1522b8;
+  --black3:  #1320a6;
+  --white:   #ffffff;
+  --muted:   #bcc4ff;
+  --muted2:  rgba(255,255,255,0.4);
+  --accent:  #ffd60a;
+  --line:    rgba(255,255,255,0.24);
   --radius:  4px;
-  --serif:   'DM Serif Display', Georgia, serif;
-  --sans:    'DM Sans', system-ui, sans-serif;
+  --serif:   'Poppins', system-ui, sans-serif;
+  --sans:    'Poppins', system-ui, sans-serif;
+  --hand:    'Caveat Brush', 'Comic Sans MS', cursive;
+
+  --surface: #1220a0;
+  --well:    #0c1685;
+  --text2:   #e8ebff;
+  --amber:   #ffd60a;   /* main accent: yellow */
+  --steel:   #ffffff;   /* secondary accent */
+  --green:   #ffffff;
+  --violet:  #ffd60a;
+  --pink:    #ffd60a;
+  --orange:  #ffd60a;
+  --cyan:    #ffffff;
+  --on-accent: #0d1240;
+  --paper:   #f6f4ef;
+  --blue:    #1a2bd6;
+  --blue-deep: #0b138a;
+  --yellow:  #ffd60a;
+  --ink:     #0d1240;
+  --grad-main: linear-gradient(135deg, #ffd60a, #ffd60a);
+  --grad-cool: linear-gradient(135deg, #ffffff, #ffffff);
+  --shadow-card: 6px 6px 0 rgba(6,10,70,0.45);
+}
+/* PAPER scope: off-white sheet, ink text, blue accents */
+.paper, .paper-scope {
+  --black:   #f6f4ef;
+  --black2:  #efece3;
+  --black3:  #ebe8de;
+  --white:   #0d1240;
+  --muted:   #4b5390;
+  --muted2:  #c9c5b8;
+  --accent:  #1a2bd6;
+  --line:    rgba(13,18,64,0.16);
+  --surface: #ffffff;
+  --well:    #efece3;
+  --text2:   #232a6b;
+  --amber:   #1a2bd6;
+  --steel:   #e6b800;
+  --violet:  #1a2bd6; --pink:#1a2bd6; --orange:#1a2bd6; --cyan:#1a2bd6; --green:#1a2bd6;
+  --on-accent: #ffffff;
+  --shadow-card: 5px 5px 0 rgba(26,43,214,0.18);
+  color: var(--white);
 }
 
 html { scroll-behavior: smooth; }
+::selection { background: #ffd60a; color: #0d1240; }
 
 body {
   font-family: var(--sans);
@@ -41,18 +86,20 @@ img, video { max-width: 100%; display: block; }
 /* ── Custom cursor ── */
 #cursor {
   width: 10px; height: 10px;
-  background: var(--white);
+  background: var(--amber);
   border-radius: 50%;
   position: fixed; top: 0; left: 0;
   pointer-events: none; z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s linear, background 0.2s, width 0.25s ease, height 0.25s ease;
-  mix-blend-mode: difference;
+  will-change: transform;
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s;
+  margin: -5px 0 0 -5px;
 }
 #cursor.hovered {
-  width: 48px; height: 48px;
-  background: var(--white);
+  width: 40px; height: 40px;
+  margin: -20px 0 0 -20px;
+  opacity: 0.35;
 }
+@media (hover: none), (pointer: coarse) { #cursor { display: none; } }
 
 /* ── Section base ── */
 section { padding: 140px 0; }
@@ -99,3 +146,63 @@ section { padding: 140px 0; }
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--black); }
 ::-webkit-scrollbar-thumb { background: var(--muted2); border-radius: 2px; }
+
+/* Route pages */
+.page { min-height: 100vh; }
+
+/* ============================================================
+   INDUSTRIAL LAYER: static background, utilities, shared pieces
+   (no blur filters, no filter/background animations: keep it fast)
+   ============================================================ */
+body {
+  background-color: #1a2bd6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 .25  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(100deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 46px),
+    linear-gradient(180deg, #1a2bd6 0%, #1624c4 100%);
+  color: #fff;
+}
+
+main, footer { position: relative; z-index: 1; }
+
+.grad-text {
+  background: var(--grad-main);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+.label {
+  display: inline-block;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+.label::before { content: ''; display: inline-block; width: 22px; height: 2px; background: var(--amber); vertical-align: middle; margin-right: 10px; }
+
+.rotator { display: inline-block; min-width: 1ch; }
+.rotator-word { display: inline-block; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.card:hover { transform: translateY(-4px); border-color: rgba(255, 214, 10,0.45); }
+
+.route-wrap { min-height: 100vh; }
+
+.to-top {
+  position: fixed; right: 24px; bottom: 24px; z-index: 90;
+  width: 44px; height: 44px; border-radius: 8px; border: 1px solid rgba(255, 214, 10,0.5); cursor: pointer;
+  background: var(--surface); color: var(--amber); font-size: 1.1rem;
+  transition: background 0.2s, color 0.2s;
+}
+.to-top:hover { background: var(--amber); color: var(--on-accent); }
+
+::-webkit-scrollbar-thumb { background: #3a424c; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}

@@ -1,4 +1,6 @@
 import { FaBriefcase, FaGraduationCap, FaCheckCircle } from 'react-icons/fa'
+import { motion } from 'framer-motion'
+import { Reveal, Stagger, Item, CountUp } from './motion'
 import './Experience.css'
 
 function ServiceNowMini() {
@@ -17,7 +19,7 @@ const experiences = [
     duration: '2026',
     location: 'Remote',
     icon: <FaBriefcase />,
-    accent: '#a855f7',
+    accent: 'var(--amber)',
     highlights: [
       'Engineered AI-powered processing workflows for invoices, receipts, and bank statements across varied templates.',
       'Conducted functional, unit, and regression testing for document classification and key-value extraction modules.',
@@ -49,7 +51,7 @@ const experiences = [
     duration: '2022 – 2026',
     location: 'Bhubaneswar, Odisha',
     icon: <FaGraduationCap />,
-    accent: '#3b82f6',
+    accent: 'var(--steel)',
     highlights: [
       'Graduated with Cumulative Grade Point Average (CGPA) of 7.6 from Institute of Technical Education & Research (ITER).',
       'Completed in-depth coursework: Data Structures & Algorithms, Operating Systems, Computer Networks, Database Management Systems, and OOP.',
@@ -57,6 +59,19 @@ const experiences = [
     ],
     tags: ['Data Structures & Algorithms', 'Operating Systems', 'DBMS', 'C++', 'Java', 'Full-Stack Web'],
   },
+]
+
+// Editable summary content
+const FOCUS = [
+  { num: 2026, label: 'AI/ML internship', color: 'var(--amber)', raw: true },
+  { num: 3, label: 'Months of ServiceNow training', color: 'var(--steel)' },
+  { num: 4, label: 'Years of B.Tech CSE', color: 'var(--steel)' },
+  { num: 10, label: 'Projects delivered', color: 'var(--amber)', suffix: '+' },
+]
+const BRING = [
+  { icon: '🤖', title: 'AI that is validated', text: 'Experience benchmarking OCR/VLM output against real financial documents.' },
+  { icon: '🏢', title: 'Enterprise-ready', text: 'ServiceNow CSA & CAD: forms, flows, scripts and ACL security.' },
+  { icon: '⚡', title: 'Full-stack delivery', text: 'React, Node and Next.js apps shipped end to end.' },
 ]
 
 export default function Experience() {
@@ -72,10 +87,23 @@ export default function Experience() {
         </p>
       </div>
 
+      <Stagger className="container exp-focus">
+        {FOCUS.map(f => (
+          <Item key={f.label} className="focus-card" style={{ '--f': f.color }}>
+            <b>{f.raw ? f.num : <CountUp to={f.num} suffix={f.suffix || ''} />}</b>
+            <span>{f.label}</span>
+          </Item>
+        ))}
+      </Stagger>
+
       <div className="container exp-timeline">
         {experiences.map((exp, idx) => (
-          <div
+          <motion.div
             key={exp.role}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+            transition={{ duration: 0.6 }}
             className="exp-card"
             style={{ '--exp-accent': exp.accent }}
           >
@@ -115,8 +143,28 @@ export default function Experience() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
+      </div>
+
+      <div className="container exp-tech">
+        <Reveal><span className="label">TECHNOLOGIES ACROSS ROLES</span></Reveal>
+        <Reveal className="exp-tech-cloud">
+          {[...new Set(experiences.flatMap(e => e.tags))].map(t => <span key={t} className="exp-chip">{t}</span>)}
+        </Reveal>
+      </div>
+
+      <div className="container exp-bring">
+        <Reveal><span className="label">WHAT I BRING</span></Reveal>
+        <Stagger className="bring-grid">
+          {BRING.map(b => (
+            <Item key={b.title} className="bring-card card">
+              <span className="bring-icon">{b.icon}</span>
+              <h4>{b.title}</h4>
+              <p>{b.text}</p>
+            </Item>
+          ))}
+        </Stagger>
       </div>
     </section>
   )

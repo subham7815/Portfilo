@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-scroll'
+import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
+
+const LINKS = ['Work', 'Experience', 'Certificates', 'Skills', 'About', 'Contact']
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -16,17 +18,17 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-inner">
         {/* Logo */}
-        <Link to="hero" smooth duration={700} className="nav-logo" offset={0}>
+        <Link to="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
           Subham<span>.</span>
         </Link>
 
         {/* Desktop links */}
         <ul className="nav-links">
-          {['Work', 'Experience', 'Certificates', 'Skills', 'About', 'Contact'].map(l => (
+          {LINKS.map(l => (
             <li key={l}>
-              <Link to={l.toLowerCase()} smooth duration={700} offset={-80} spy activeClass="active">
+              <NavLink to={`/${l.toLowerCase()}`} className={({ isActive }) => (isActive ? 'active' : '')}>
                 {l}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -48,11 +50,10 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-        {['Work', 'Experience', 'Certificates', 'Skills', 'About', 'Contact'].map(l => (
-          <Link key={l} to={l.toLowerCase()} smooth duration={700} offset={-80}
-            onClick={() => setMenuOpen(false)}>
+        {LINKS.map(l => (
+          <NavLink key={l} to={`/${l.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
             {l}
-          </Link>
+          </NavLink>
         ))}
       </div>
     </nav>

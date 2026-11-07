@@ -1,7 +1,7 @@
 .work {
   padding: 120px 0;
   position: relative;
-  background: #080808;
+  background: transparent;
 }
 
 .work-header {
@@ -39,7 +39,7 @@
 .work-filter-btn {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #94a3b8;
+  color: var(--muted);
   font-family: var(--sans);
   font-size: 0.82rem;
   padding: 8px 18px;
@@ -50,15 +50,15 @@
 }
 
 .work-filter-btn:hover {
-  color: #fff;
+  color: var(--white);
   border-color: rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.06);
 }
 
 .work-filter-btn.active {
-  background: #fff;
-  color: #000;
-  border-color: #fff;
+  background: var(--white);
+  color: var(--on-accent);
+  border-color: var(--white);
   font-weight: 600;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .work-card {
-  background: #0f0f0f;
+  background: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
   overflow: hidden;
@@ -88,8 +88,8 @@
 
 .work-card:hover {
   transform: translateY(-6px);
-  border-color: var(--card-accent, #38bdf8);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.08);
+  border-color: var(--card-accent, var(--amber));
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45), 0 0 30px rgba(255, 214, 10, 0.08);
 }
 
 /* Media Box */
@@ -97,7 +97,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  background: #050505;
+  background: var(--well);
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -120,9 +120,8 @@
   left: 14px;
   font-family: var(--serif);
   font-size: 0.95rem;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
+  color: var(--white);
+  background: rgba(0, 0, 0, 0.45);
   padding: 4px 10px;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -132,8 +131,7 @@
 .work-media-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,21 +158,21 @@
 }
 
 .media-action-btn.primary {
-  background: #fff;
-  color: #000;
+  background: var(--white);
+  color: var(--on-accent);
 }
 .media-action-btn.primary:hover {
-  background: var(--card-accent, #38bdf8);
+  background: var(--card-accent, var(--amber));
   transform: scale(1.05);
 }
 
 .media-action-btn.secondary {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(11, 19, 138, 0.8);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 .media-action-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(11, 19, 138, 0.95);
   transform: scale(1.05);
 }
 
@@ -197,7 +195,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--card-accent, #94a3b8);
+  color: var(--card-accent, var(--muted));
   font-weight: 600;
 }
 
@@ -205,9 +203,9 @@
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: rgba(56, 189, 248, 0.12);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: rgba(255, 214, 10, 0.12);
+  color: var(--amber);
+  border: 1px solid rgba(255, 214, 10, 0.3);
   padding: 2px 8px;
   border-radius: 999px;
   font-weight: 600;
@@ -217,7 +215,7 @@
   font-family: var(--serif);
   font-size: 1.45rem;
   line-height: 1.25;
-  color: #fff;
+  color: var(--white);
 }
 
 .work-card-title a {
@@ -229,7 +227,7 @@
 }
 
 .work-card-title a:hover {
-  color: var(--card-accent, #38bdf8);
+  color: var(--card-accent, var(--amber));
 }
 
 .title-arrow {
@@ -244,7 +242,7 @@
 .work-card-desc {
   font-size: 0.9rem;
   line-height: 1.65;
-  color: #94a3b8;
+  color: var(--muted);
   flex: 1;
 }
 
@@ -258,7 +256,7 @@
 .tech-chip {
   font-size: 0.72rem;
   letter-spacing: 0.02em;
-  color: #cbd5e1;
+  color: var(--text2);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 4px 10px;
@@ -283,17 +281,17 @@
 }
 
 .work-link-btn.live {
-  color: #fff;
+  color: var(--white);
 }
 .work-link-btn.live:hover {
-  color: var(--card-accent, #38bdf8);
+  color: var(--card-accent, var(--amber));
 }
 
 .work-link-btn.code {
   color: #64748b;
 }
 .work-link-btn.code:hover {
-  color: #cbd5e1;
+  color: var(--text2);
 }
 
 @media (max-width: 768px) {

@@ -23,7 +23,7 @@
   font-size: 1.25rem;
   color: var(--white);
 }
-.footer-logo em { font-style: normal; color: #38bdf8; }
+.footer-logo em { font-style: normal; color: var(--amber); }
 
 .footer-role {
   font-size: 0.75rem;
@@ -45,7 +45,7 @@
 
 .footer-links a {
   font-size: 0.8rem;
-  color: #94a3b8;
+  color: var(--muted);
   letter-spacing: 0.04em;
   display: inline-flex;
   align-items: center;
@@ -54,7 +54,7 @@
 }
 
 .footer-links a:hover {
-  color: #38bdf8;
+  color: var(--amber);
   transform: translateY(-1px);
 }
 

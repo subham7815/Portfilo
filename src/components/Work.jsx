@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { CountUp, Stagger, Item } from './motion'
 import './Work.css'
 
-const projects = [
+export const projects = [
   {
     id: '01',
     title: 'DexAI Platform',
@@ -141,14 +143,16 @@ export default function Work() {
 
   const categories = ['All', 'Full-Stack', 'Frontend', 'ServiceNow & Systems', 'AI & Tools']
 
-  const filtered = projects.filter(p => {
-    if (filter === 'All') return true
-    if (filter === 'Full-Stack') return p.category.includes('Full-Stack') || p.tags.includes('Node.js') || p.tags.includes('Next.js 14')
-    if (filter === 'Frontend') return p.tags.includes('HTML5') || p.category.includes('Web UI') || p.category.includes('E-Commerce')
-    if (filter === 'ServiceNow & Systems') return p.tags.includes('C++') || p.tags.includes('ServiceNow Studio')
-    if (filter === 'AI & Tools') return p.category.includes('AI') || p.title.includes('DexAI')
+  const match = (p, f) => {
+    if (f === 'All') return true
+    if (f === 'Full-Stack') return p.category.includes('Full-Stack') || p.tags.includes('Node.js') || p.tags.includes('Next.js 14')
+    if (f === 'Frontend') return p.tags.includes('HTML5') || p.category.includes('Web UI') || p.category.includes('E-Commerce')
+    if (f === 'ServiceNow & Systems') return p.tags.includes('C++') || p.tags.includes('ServiceNow Studio')
+    if (f === 'AI & Tools') return p.category.includes('AI') || p.title.includes('DexAI')
     return true
-  })
+  }
+  const filtered = projects.filter(p => match(p, filter))
+  const countFor = cat => projects.filter(p => match(p, cat)).length
 
   return (
     <section id="work" className="work">
@@ -161,6 +165,14 @@ export default function Work() {
         <span className="label project-count">({filtered.length} of {projects.length} Projects)</span>
       </div>
 
+      {/* Stats */}
+      <Stagger className="container work-stats">
+        <Item className="work-stat"><b><CountUp to={projects.length} /></b><span>Projects</span></Item>
+        <Item className="work-stat"><b><CountUp to={projects.filter(p => p.liveUrl && !p.liveUrl.includes('github.com')).length} /></b><span>Live deployments</span></Item>
+        <Item className="work-stat"><b><CountUp to={new Set(projects.flatMap(p => p.tags)).size} /></b><span>Technologies used</span></Item>
+        <Item className="work-stat"><b><CountUp to={projects.filter(p => p.featured).length} /></b><span>Featured builds</span></Item>
+      </Stagger>
+
       {/* Filter Chips */}
       <div className="container work-filters">
         {categories.map(cat => (
@@ -170,6 +182,7 @@ export default function Work() {
             onClick={() => setFilter(cat)}
           >
             {cat}
+            <span className="filter-count">{countFor(cat)}</span>
           </button>
         ))}
       </div>
@@ -177,8 +190,11 @@ export default function Work() {
       {/* Projects Grid with Rich Thumbnails */}
       <div className="container work-grid">
         {filtered.map((p, idx) => (
-          <div
-            key={p.id}
+          <motion.div
+            key={`${filter}-${p.id}`}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: Math.min(idx * 0.03, 0.25) }}
             className={`work-card ${p.featured ? 'is-featured' : ''}`}
             style={{ '--card-accent': p.accent }}
             onMouseEnter={() => setActiveProject(p.id)}
@@ -190,6 +206,7 @@ export default function Work() {
                 src={p.image}
                 alt={p.title}
                 loading="lazy"
+                decoding="async"
                 className="work-card-img"
               />
               <div className="work-media-overlay">
@@ -255,7 +272,7 @@ export default function Work() {
                 )}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
