@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { CountUp } from './motion'
-import { FaCheckCircle, FaAward, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
+import { FaAward, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
 import './Certificates.css'
 
 function OracleLogo() {
@@ -128,32 +128,6 @@ const certificates = [
     link: 'https://www.linkedin.com/in/subham7815/',
     featured: false,
   },
-  {
-    id: 'ai-doc',
-    title: 'AI/ML & Document AI Practitioner',
-    issuer: 'KreativeTimebox',
-    type: 'AI Research Internship',
-    date: 'Completed',
-    image: '/certificates/kreativetimebox-ai.svg',
-    accent: '#c084fc',
-    description: 'Hands-on production engineering in Optical Character Recognition (OCR), Vision Language Models (VLM), multimodal financial document understanding, and PyTorch deep learning pipelines.',
-    skills: ['Document AI', 'OCR Pipelines', 'Vision Models (VLM)', 'PyTorch', 'OpenCV'],
-    link: 'https://www.linkedin.com/in/subham7815/',
-    featured: false,
-  },
-  {
-    id: 'btech-cse',
-    title: 'B.Tech — Computer Science & Engineering',
-    issuer: 'SOA University (ITER)',
-    type: 'Undergraduate Degree',
-    date: 'Graduate · CGPA: 7.6',
-    image: '/certificates/soa-university.svg',
-    accent: '#60a5fa',
-    description: 'Four-year engineering degree covering core Computer Science: Data Structures & Algorithms, Operating Systems, Database Management Systems, System Architecture, and Software Engineering.',
-    skills: ['Algorithms & Data Structures', 'Operating Systems', 'DBMS', 'OOP System Design'],
-    link: 'https://www.linkedin.com/in/subham7815/',
-    featured: false,
-  },
 ]
 
 export default function Certificates() {
@@ -165,8 +139,8 @@ export default function Certificates() {
   const filtered = certificates.filter(c => {
     if (filter === 'All') return true
     if (filter === 'Official Industry Certs') return c.issuer === 'Oracle' || c.issuer === 'ServiceNow' || c.issuer === 'EY & Microsoft' || c.issuer === 'HackerRank'
-    if (filter === 'AI & Data Science') return c.id === 'oracle-ai' || c.id === 'ey-microsoft' || c.id === 'ai-doc' || c.id === 'infosys' || c.id === 'deloitte'
-    if (filter === 'Academic & Virtual') return c.id === 'btech-cse' || c.id === 'deloitte' || c.id === 'tata-crucible' || c.id === 'ai-doc'
+    if (filter === 'AI & Data Science') return c.id === 'oracle-ai' || c.id === 'ey-microsoft' || c.id === 'infosys' || c.id === 'deloitte'
+    if (filter === 'Academic & Virtual') return c.id === 'deloitte' || c.id === 'tata-crucible'
     return true
   })
 
@@ -228,9 +202,6 @@ export default function Certificates() {
               />
               <div className="cert-media-hover">
                 <span className="cert-zoom-pill">🔍 Click to Expand</span>
-              </div>
-              <div className="cert-badge-tag">
-                <FaCheckCircle className="check-icon" /> Verified
               </div>
               {cert.certId && (
                 <div className="cert-id-tag">ID: {cert.certId}</div>
