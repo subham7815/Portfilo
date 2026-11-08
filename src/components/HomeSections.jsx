@@ -23,75 +23,56 @@ const TERM_LINES = [
 ]
 const ORBIT = [[SiReact, '#61dafb'], [SiPython, '#ffd43b'], [SiPytorch, '#ee4c2c'], [SiMongodb, '#47a248'], [SiFastapi, '#05998b'], [SiMysql, '#4479a1'], [SiJavascript, '#f7df1e'], [SiGit, '#f05032']]
 
-function Puppy() {
-  return (
-    <svg className="pup-svg" viewBox="0 0 130 90" aria-hidden="true">
-      <ellipse cx="62" cy="86" rx="40" ry="3.5" fill="rgba(0,0,0,.22)" />
-      <g className="pup-tail"><path d="M24 40 C 8 30, 6 16, 16 10" fill="none" stroke="#e0993a" strokeWidth="9" strokeLinecap="round" /></g>
-      <g className="pup-leg pup-leg-b2"><rect x="30" y="58" width="11" height="24" rx="5.5" fill="#d98a2b" /></g>
-      <g className="pup-leg pup-leg-f2"><rect x="82" y="58" width="11" height="24" rx="5.5" fill="#d98a2b" /></g>
-      <ellipse cx="60" cy="50" rx="40" ry="22" fill="#f4b860" />
-      <ellipse cx="60" cy="58" rx="24" ry="11" fill="#ffe2b0" />
-      <g className="pup-leg pup-leg-b1"><rect x="42" y="58" width="11" height="26" rx="5.5" fill="#f4b860" /></g>
-      <g className="pup-leg pup-leg-f1"><rect x="70" y="58" width="11" height="26" rx="5.5" fill="#f4b860" /></g>
-      <g className="pup-head">
-        <path d="M84 30 C 80 12, 92 4, 100 10 C 98 20, 96 26, 92 32 Z" fill="#b96d1c" className="pup-ear" />
-        <circle cx="102" cy="34" r="20" fill="#f4b860" />
-        <ellipse cx="114" cy="42" rx="12" ry="9" fill="#ffe2b0" />
-        <ellipse cx="121" cy="38" rx="5" ry="4" fill="#2a1a10" />
-        <circle cx="104" cy="28" r="3.6" fill="#2a1a10" /><circle cx="105.2" cy="26.8" r="1.2" fill="#fff" />
-        <path d="M112 47 Q 117 52 122 46" fill="none" stroke="#2a1a10" strokeWidth="2" strokeLinecap="round" />
-        <path className="pup-tongue" d="M116 48 q 2 9 6 3 q 0 -4 -2 -5 z" fill="#ff6f8e" />
-      </g>
-    </svg>
-  )
-}
+const STARS = [[60, 40], [130, 150], [220, 30], [300, 110], [380, 170], [470, 40], [560, 130], [640, 24], [720, 160], [800, 60], [880, 140], [940, 26], [1100, 40], [1160, 150], [40, 100], [1040, 180]]
 
-function Robot() {
+function SpaceScene() {
   return (
-    <svg className="bot-svg" viewBox="0 0 110 140" aria-hidden="true">
-      <ellipse cx="55" cy="136" rx="34" ry="3.5" fill="rgba(0,0,0,.22)" />
-      <line x1="55" y1="6" x2="55" y2="22" stroke="#cfd5ff" strokeWidth="4" strokeLinecap="round" />
-      <circle className="bot-ball" cx="55" cy="6" r="6" fill="#ffd60a" />
-      <rect x="26" y="22" width="58" height="40" rx="14" fill="#eef0ff" />
-      <rect x="33" y="30" width="44" height="24" rx="10" fill="#0d1240" />
-      <circle className="bot-eye" cx="45" cy="42" r="5.5" fill="#6ee7ff" />
-      <circle className="bot-eye" cx="65" cy="42" r="5.5" fill="#6ee7ff" />
-      <rect x="20" y="34" width="6" height="16" rx="3" fill="#ffd60a" /><rect x="84" y="34" width="6" height="16" rx="3" fill="#ffd60a" />
-      <rect x="30" y="66" width="50" height="46" rx="12" fill="#dfe3ff" />
-      <rect x="40" y="76" width="30" height="22" rx="7" fill="#1a2bd6" />
-      <path className="bot-heart" d="M55 94 C 44 86, 46 79, 51 79 C 53 79, 55 81, 55 82 C 55 81, 57 79, 59 79 C 64 79, 66 86, 55 94 Z" fill="#ff6f8e" />
-      <g className="bot-arm-l"><rect x="14" y="68" width="16" height="9" rx="4.5" fill="#cfd5ff" /></g>
-      <g className="bot-arm-r"><rect x="80" y="62" width="9" height="30" rx="4.5" fill="#cfd5ff" /><circle cx="84.5" cy="60" r="6" fill="#ffd60a" /></g>
-      <rect x="38" y="112" width="12" height="20" rx="5" fill="#cfd5ff" /><rect x="60" y="112" width="12" height="20" rx="5" fill="#cfd5ff" />
-      <rect x="33" y="128" width="20" height="8" rx="4" fill="#ffd60a" /><rect x="57" y="128" width="20" height="8" rx="4" fill="#ffd60a" />
-    </svg>
-  )
-}
+    <div className="space" aria-hidden="true">
+      <svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid meet">
+        {STARS.map(([x, y], i) => <circle key={i} className="sp-star" cx={x} cy={y} r={i % 3 === 0 ? 2.6 : 1.8} fill="#fff" style={{ animationDelay: `${(i % 6) * 0.45}s` }} />)}
 
-const CONFETTI = [
-  ['#ffd60a', -60, -70], ['#ff6f8e', -20, -90], ['#6ee7ff', 25, -80], ['#8ef0b5', 60, -55], ['#fff', -80, -30], ['#ffd60a', 45, -100], ['#ff6f8e', -45, -105], ['#6ee7ff', 80, -75],
-]
+        <path d="M 150 36 a 22 22 0 1 0 14 38 a 17 17 0 1 1 -14 -38 z" fill="#fff4b8" className="sp-moon" />
 
-function ChaseScene() {
-  return (
-    <div className="chase" aria-hidden="true">
-      <i className="chase-star cs1" /><i className="chase-star cs2" /><i className="chase-star cs3" /><i className="chase-star cs4" />
-      <span className="chase-cloud cc1" /><span className="chase-cloud cc2" />
-      <div className="chase-ground" />
-      <div className="chase-puppy">
-        <i className="dust d1" /><i className="dust d2" /><i className="dust d3" />
-        <i className="chase-ball" />
-        <div className="chase-bob"><div className="chase-jump"><Puppy /></div></div>
-      </div>
-      <div className="chase-bot">
-        <Robot />
-        <span className="chase-say">Good boy!</span>
-        <i className="chase-heart h1">♥</i><i className="chase-heart h2">♥</i><i className="chase-heart h3">♥</i>
-        <span className="confetti">
-          {CONFETTI.map(([col, x, y], i) => <b key={i} style={{ '--c': col, '--x': `${x}px`, '--y': `${y}px`, '--d': `${i * 0.05}s` }} />)}
-        </span>
-      </div>
+        <g className="sp-planet">
+          <circle cx="1020" cy="108" r="38" fill="#ff9a3c" />
+          <path d="M984 96 q 36 -10 72 6 M982 116 q 38 8 76 -4" stroke="#ffbf75" strokeWidth="5" fill="none" strokeLinecap="round" />
+          <ellipse cx="1020" cy="108" rx="66" ry="14" fill="none" stroke="#ffd60a" strokeWidth="4" transform="rotate(-18 1020 108)" />
+          <circle cx="1020" cy="108" r="38" fill="none" />
+          <g>
+            <animateTransform attributeName="transform" type="rotate" from="0 1020 108" to="360 1020 108" dur="12s" repeatCount="indefinite" />
+            <g transform="translate(1020 52)">
+              <rect x="-7" y="-4" width="14" height="8" rx="2" fill="#dfe3ff" />
+              <rect x="-17" y="-3" width="9" height="6" fill="#6ee7ff" /><rect x="8" y="-3" width="9" height="6" fill="#6ee7ff" />
+            </g>
+          </g>
+        </g>
+
+        <g className="sp-planet-sm">
+          <circle cx="420" cy="48" r="13" fill="#6ee7ff" />
+          <circle cx="415" cy="44" r="4" fill="#bff3ff" />
+        </g>
+
+        <line className="sp-shoot s1" x1="0" y1="0" x2="-70" y2="-26" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" />
+        <line className="sp-shoot s2" x1="0" y1="0" x2="-70" y2="-26" stroke="#ffd60a" strokeWidth="2.5" strokeLinecap="round" />
+
+        <g>
+          <animateMotion dur="10s" repeatCount="indefinite" rotate="auto" path="M -90 160 C 180 20, 420 190, 700 90 S 1120 30, 1300 120" />
+          <g className="sp-trail">
+            <circle cx="-34" cy="0" r="7" fill="rgba(255,255,255,.5)" />
+            <circle cx="-52" cy="0" r="5" fill="rgba(255,255,255,.35)" />
+            <circle cx="-68" cy="0" r="3.5" fill="rgba(255,255,255,.22)" />
+          </g>
+          <g className="sp-flame">
+            <path d="M-20 0 L-42 -9 Q -34 0 -42 9 Z" fill="#ff6f3c" />
+            <path d="M-20 0 L-34 -5 Q -29 0 -34 5 Z" fill="#ffd60a" />
+          </g>
+          <path d="M-16 -10 L-30 -22 L-8 -10 Z M-16 10 L-30 22 L-8 10 Z" fill="#ff4d6d" />
+          <path d="M-20 -11 Q 6 -17 34 0 Q 6 17 -20 11 Z" fill="#fff" />
+          <path d="M20 -8 Q 28 -4 34 0 Q 28 4 20 8 Q 25 0 20 -8 Z" fill="#ff4d6d" />
+          <circle cx="4" cy="0" r="6" fill="#1a2bd6" stroke="#cfd5ff" strokeWidth="2" />
+          <circle cx="2.5" cy="-1.5" r="1.8" fill="#6ee7ff" />
+        </g>
+      </svg>
     </div>
   )
 }
@@ -277,7 +258,7 @@ export default function HomeSections() {
               <Link to="/contact" className="term-link">Let&apos;s talk <FaArrowRight /></Link>
             </div>
           </Reveal>
-          <ChaseScene />
+          <SpaceScene />
         </div>
       </section>
 

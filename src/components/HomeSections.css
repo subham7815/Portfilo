@@ -213,71 +213,20 @@
 .btn-yellow { display: inline-flex; align-items: center; gap: 10px; padding: 13px 26px; border-radius: 999px; background: var(--yellow); color: #0d1240; font-weight: 800; box-shadow: 4px 4px 0 rgba(0,0,0,.25); transition: transform .2s, box-shadow .2s; }
 .btn-yellow:hover { transform: translate(-2px, -3px); box-shadow: 7px 8px 0 rgba(0,0,0,.25); }
 
-/* puppy runs to the robot */
-.chase { position: relative; height: 200px; margin-top: 40px; --cycle: 9s; }
-.chase-ground { position: absolute; left: 0; right: 0; bottom: 8px; border-top: 3px dashed rgba(255,255,255,.4); }
-.chase-bot { position: absolute; right: 4%; bottom: 8px; width: 96px; }
-.bot-svg { width: 100%; display: block; animation: bot-happy var(--cycle) ease-in-out infinite; transform-origin: 50% 100%; }
-.bot-ball { animation: blink-ball 1.2s ease-in-out infinite; }
-.bot-eye { animation: bot-blink 4s infinite; transform-box: fill-box; transform-origin: center; }
-.bot-arm-r { transform-box: fill-box; transform-origin: 50% 90%; animation: bot-wave var(--cycle) ease-in-out infinite; }
-.bot-heart { transform-box: fill-box; transform-origin: center; animation: heart-beat 1s ease-in-out infinite; }
-.chase-puppy { position: absolute; bottom: 8px; left: 0; width: 112px; animation: pup-run var(--cycle) cubic-bezier(.4,.1,.5,1) infinite; }
-.chase-bob { animation: pup-bob .36s ease-in-out infinite; }
-.pup-svg { width: 100%; display: block; overflow: visible; }
-.pup-leg, .pup-tail, .pup-head, .pup-ear, .pup-tongue { transform-box: fill-box; }
-.pup-leg { transform-origin: 50% 8%; animation: pup-leg .36s ease-in-out infinite; }
-.pup-leg-f2, .pup-leg-b1 { animation-direction: reverse; }
-.pup-tail { transform-origin: 90% 90%; animation: pup-tail .25s ease-in-out infinite alternate; }
-.pup-ear { transform-origin: 90% 10%; animation: pup-ear .36s ease-in-out infinite; }
-.pup-tongue { transform-origin: 50% 0; animation: pup-tongue .36s ease-in-out infinite; }
-.chase-say { position: absolute; left: -62px; top: -8px; padding: 6px 12px; border-radius: 12px; background: #fff; color: #0d1240; font-family: var(--hand); font-size: 1.1rem; white-space: nowrap; opacity: 0; animation: say-pop var(--cycle) ease-out infinite; }
-.chase-heart { position: absolute; font-style: normal; color: #ff6f8e; font-size: 1.4rem; opacity: 0; left: -24px; top: 20px; animation: heart-float var(--cycle) ease-out infinite; }
-.chase-heart.h2 { left: -48px; top: 40px; animation-delay: .25s; }
-.chase-heart.h3 { left: -10px; top: 6px; animation-delay: .5s; }
-@keyframes pup-run {
-  0% { transform: translateX(-130px); opacity: 0; }
-  5% { opacity: 1; }
-  62% { transform: translateX(calc(96cqw - 222px)); }
-  100% { transform: translateX(calc(96cqw - 222px)); opacity: 1; }
-}
-@keyframes pup-bob { 50% { transform: translateY(-9px); } }
-@keyframes pup-leg { 0%,100% { transform: rotate(32deg); } 50% { transform: rotate(-32deg); } }
-@keyframes pup-tail { from { transform: rotate(-14deg); } to { transform: rotate(16deg); } }
-@keyframes pup-ear { 50% { transform: rotate(-14deg); } }
-@keyframes pup-tongue { 50% { transform: scaleY(1.25); } }
-@keyframes bot-happy { 0%,60% { transform: none; } 66% { transform: translateY(-14px) scale(1.04); } 72% { transform: none; } 78% { transform: translateY(-10px); } 84%,100% { transform: none; } }
-@keyframes bot-wave { 0%,55% { transform: rotate(0); } 62%,70%,78% { transform: rotate(-42deg); } 66%,74%,82% { transform: rotate(-8deg); } 90%,100% { transform: rotate(0); } }
-@keyframes bot-blink { 0%,93%,100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
-@keyframes blink-ball { 50% { opacity: .4; } }
-@keyframes heart-beat { 50% { transform: scale(1.25); } }
-@keyframes say-pop { 0%,60% { opacity: 0; transform: translateY(6px) scale(.8); } 66%,88% { opacity: 1; transform: none; } 94%,100% { opacity: 0; } }
-@keyframes heart-float { 0%,62% { opacity: 0; transform: translateY(10px) scale(.6); } 70% { opacity: 1; } 92%,100% { opacity: 0; transform: translateY(-46px) scale(1.1); } }
-.chase { container-type: inline-size; }
-@media (max-width: 600px) { .chase-say { display: none; } .chase-bot { width: 76px; } .chase-puppy { width: 92px; } }
-@media (prefers-reduced-motion: reduce) {
-  .chase *, .chase-puppy { animation: none !important; }
-  .chase-puppy { transform: translateX(calc(96cqw - 222px)); }
-  .chase-say { opacity: 1; }
-}
-
-/* extra motion: ball, dust, confetti, jump, sky */
-.chase { overflow: hidden; }
-.chase-ball { position: absolute; left: 140px; bottom: 0; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff 0 14%, #ff6f8e 15% 100%); box-shadow: 2px 2px 0 rgba(0,0,0,.25); animation: ball-bounce .55s cubic-bezier(.3,.6,.4,1) infinite, ball-fade var(--cycle) linear infinite; }
-.dust { position: absolute; bottom: 2px; left: 6px; width: 14px; height: 14px; border-radius: 50%; background: rgba(255,255,255,.55); opacity: 0; animation: dust .6s ease-out infinite; }
-.dust.d2 { animation-delay: .2s; left: 0; } .dust.d3 { animation-delay: .4s; left: 12px; }
-.chase-jump { animation: pup-hop var(--cycle) ease-in-out infinite; transform-origin: 50% 100%; }
-.confetti { position: absolute; left: 30px; top: 30px; width: 0; height: 0; }
-.confetti b { position: absolute; width: 9px; height: 9px; border-radius: 2px; background: var(--c); opacity: 0; animation: confetti var(--cycle) ease-out infinite; animation-delay: var(--d); }
-.chase-star { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #fff; animation: intro-twinkle 2.4s ease-in-out infinite; }
-.cs1 { left: 12%; top: 14px; } .cs2 { left: 38%; top: 34px; animation-delay: .6s; } .cs3 { left: 64%; top: 10px; animation-delay: 1.2s; } .cs4 { left: 86%; top: 38px; animation-delay: 1.8s; }
-.chase-cloud { position: absolute; top: 18px; width: 70px; height: 22px; border-radius: 22px; background: rgba(255,255,255,.18); animation: cloud 42s linear infinite; }
-.chase-cloud::before { content: ''; position: absolute; left: 14px; top: -12px; width: 30px; height: 26px; border-radius: 50%; background: inherit; }
-.cc2 { top: 54px; width: 54px; animation-duration: 58s; animation-delay: -24s; opacity: .8; }
-@keyframes ball-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-34px); } }
-@keyframes ball-fade { 0%,4% { opacity: 0; } 8%,56% { opacity: 1; } 62%,100% { opacity: 0; } }
-@keyframes dust { 0% { opacity: .7; transform: translate(0, 0) scale(.4); } 100% { opacity: 0; transform: translate(-34px, -14px) scale(1.5); } }
-@keyframes pup-hop { 0%,60% { transform: none; } 66% { transform: translateY(-34px) rotate(-8deg); } 72% { transform: none; } 78% { transform: translateY(-22px) rotate(6deg); } 84%,100% { transform: none; } }
-@keyframes confetti { 0%,62% { opacity: 0; transform: translate(0, 0) rotate(0); } 66% { opacity: 1; } 90%,100% { opacity: 0; transform: translate(var(--x), calc(var(--y) + 60px)) rotate(420deg); } }
-@keyframes cloud { from { transform: translateX(-120px); } to { transform: translateX(calc(100cqw + 120px)); } }
-@media (prefers-reduced-motion: reduce) { .chase-ball, .dust, .confetti { display: none; } }
+/* rocket through space */
+.space { margin-top: 34px; border-radius: 16px; background: linear-gradient(180deg, rgba(13,18,64,.55), rgba(13,18,64,.2)); border: 2px solid rgba(255,255,255,.15); overflow: hidden; }
+.space svg { display: block; width: 100%; height: auto; }
+.sp-star { animation: intro-twinkle 2.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.sp-moon { animation: sp-float 6s ease-in-out infinite; }
+.sp-planet { animation: sp-float 7s ease-in-out infinite reverse; }
+.sp-planet-sm { animation: sp-float 5s ease-in-out infinite; }
+.sp-flame { transform-box: fill-box; transform-origin: 100% 50%; animation: sp-flame .12s ease-in-out infinite alternate; }
+.sp-trail circle { animation: sp-puff .5s ease-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+.sp-shoot { animation: sp-shoot 6s ease-in infinite; opacity: 0; }
+.sp-shoot.s1 { transform: translate(900px, 20px); }
+.sp-shoot.s2 { transform: translate(520px, 70px); animation-delay: 3s; animation-duration: 7s; }
+@keyframes sp-float { 50% { transform: translateY(-8px); } }
+@keyframes sp-flame { from { transform: scaleX(.75); } to { transform: scaleX(1.25); } }
+@keyframes sp-puff { to { transform: scale(1.5); opacity: .4; } }
+@keyframes sp-shoot { 0% { opacity: 0; translate: 0 0; } 6% { opacity: 1; } 22% { opacity: 0; translate: -260px 96px; } 100% { opacity: 0; translate: -260px 96px; } }
+@media (prefers-reduced-motion: reduce) { .space * { animation: none !important; } }
