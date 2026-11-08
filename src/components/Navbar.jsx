@@ -34,7 +34,7 @@ export default function Navbar() {
         </ul>
 
         {/* CTA */}
-        <a href="mailto:nayaksubham551@gmail.com" className="nav-cta">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nayaksubham551@gmail.com&su=Opportunity%20for%20Subham" target="_blank" rel="noreferrer" className="nav-cta">
           Available for hire ↗
         </a>
 

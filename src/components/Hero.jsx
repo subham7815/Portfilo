@@ -72,8 +72,7 @@ export default function Hero() {
             </a>
             <a href="https://github.com/subham7815" target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub /> <span>subham7815</span></a>
             <a href="https://www.linkedin.com/in/subham7815/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin /> <span>LinkedIn</span></a>
-            <a href="https://vercel.com/shubhams-projects-369a9342" target="_blank" rel="noreferrer" aria-label="Vercel"><SiGithub /> <span>Repos</span></a>
-            <a href="mailto:nayaksubham551@gmail.com" aria-label="Email"><FaEnvelope /> <span>Email</span></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nayaksubham551@gmail.com&su=Opportunity%20for%20Subham" target="_blank" rel="noreferrer" aria-label="Email"><FaEnvelope /> <span>Email</span></a>
           </div>
         </div>
 

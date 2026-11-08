@@ -7,6 +7,7 @@ import './Work.css'
 export const projects = [
   {
     id: '01',
+    groups: ['Full-Stack', 'AI & Tools'],
     title: 'DexAI Platform',
     category: 'AI / Full-Stack · 2026',
     description: 'Modern AI product platform landing & showcase with responsive components, dark-mode glassmorphic styling, and interactive workflow demos.',
@@ -20,6 +21,7 @@ export const projects = [
   },
   {
     id: '02',
+    groups: ['Full-Stack'],
     title: 'TalentFlow — Mini ATS',
     category: 'Full-Stack Web App · 2026',
     description: 'Full-Stack Applicant Tracking System (ATS) designed for HR teams to manage job openings, candidate pipelines, recruitment stages, and hiring analytics.',
@@ -33,6 +35,7 @@ export const projects = [
   },
   {
     id: '03',
+    groups: ['Frontend'],
     title: 'FitLife — Fitness Platform',
     category: 'Modern Web UI · 2026',
     description: 'Clean, responsive fitness platform with high-energy UI, fluid CSS animations, dynamic membership tiers, trainer showcases, and mobile-friendly design.',
@@ -46,6 +49,7 @@ export const projects = [
   },
   {
     id: '04',
+    groups: ['ServiceNow & Systems'],
     title: 'Linux File Explorer Application',
     category: 'Systems & C++ · 2025-2026',
     description: 'Console-based Linux file explorer featuring dual-mode navigation (Normal/Command), live regex search, and low-level Linux syscalls for terminal operations.',
@@ -59,6 +63,7 @@ export const projects = [
   },
   {
     id: '05',
+    groups: ['Full-Stack'],
     title: 'InvoNexa — Global E-Invoicing Platform',
     category: 'Invoicing Infrastructure · 2026',
     description: 'Invoicing infrastructure for global businesses: send and receive compliant e-invoices over Peppol, report to tax authorities and connect ERP systems through one API.',
@@ -72,6 +77,7 @@ export const projects = [
   },
   {
     id: '06',
+    groups: ['Frontend'],
     title: 'Morrow Banking Dashboard',
     category: 'Fintech UI · 2026',
     description: 'Mobile-first banking app UI with a total balance card, quick actions (send, request, add money, cards) and a grouped recent-activity feed.',
@@ -85,12 +91,13 @@ export const projects = [
   },
   {
     id: '07',
+    groups: ['Full-Stack'],
     title: 'DexServe — Volunteer Scheduling Platform',
     category: 'Full-Stack Monorepo · 2026',
-    description: 'Multi-organisation volunteer scheduling platform in one pnpm monorepo: React web app, Expo mobile app and a Prisma-backed REST API with shared types and hooks.',
+    description: 'Volunteer rota platform that sends shift reminders, fills gaps from the waitlist when someone drops out and logs hours with a QR scan. Web app, Expo mobile app and REST API in one monorepo.',
     tags: ['TypeScript', 'React', 'Expo', 'Express', 'Prisma'],
-    image: '/projects/dexserve.svg',
-    liveUrl: 'https://github.com/subham7815/DexServe',
+    image: '/projects/dexserve.png',
+    liveUrl: 'https://dex-serve.vercel.app',
     githubUrl: 'https://github.com/subham7815/DexServe',
     accent: '#fb923c',
     color: '#1c1008',
@@ -98,6 +105,7 @@ export const projects = [
   },
   {
     id: '08',
+    groups: ['ServiceNow & Systems'],
     title: 'Book Management System (ServiceNow)',
     category: 'Enterprise App · 2026',
     description: 'Enterprise ServiceNow application built with Flow Designer, custom scoped tables, Business Rules, Client Scripts, ACL security, and ATF test suites.',
@@ -111,6 +119,7 @@ export const projects = [
   },
   {
     id: '09',
+    groups: ['Frontend'],
     title: 'City Shop — E-Commerce Website',
     category: 'E-Commerce · 2025',
     description: 'Responsive online storefront with a hero offer banner, featured products, shopping cart and mobile-friendly layout, built with HTML, CSS and JavaScript.',
@@ -124,6 +133,7 @@ export const projects = [
   },
   {
     id: '10',
+    groups: ['Frontend'],
     title: 'Tic-Tac-Toe Game',
     category: 'Interactive Web Game · 2025',
     description: 'Two-player Tic Tac Toe game with winner detection and a reset button, styled with a glassmorphic dark UI in HTML, CSS and JavaScript.',
@@ -143,14 +153,7 @@ export default function Work() {
 
   const categories = ['All', 'Full-Stack', 'Frontend', 'ServiceNow & Systems', 'AI & Tools']
 
-  const match = (p, f) => {
-    if (f === 'All') return true
-    if (f === 'Full-Stack') return p.category.includes('Full-Stack') || p.tags.includes('Node.js') || p.tags.includes('Next.js') || p.tags.includes('Express')
-    if (f === 'Frontend') return p.tags.includes('HTML5') || p.category.includes('Web UI') || p.category.includes('E-Commerce')
-    if (f === 'ServiceNow & Systems') return p.tags.includes('C++') || p.tags.includes('ServiceNow Studio')
-    if (f === 'AI & Tools') return p.category.includes('AI') || p.title.includes('DexAI')
-    return true
-  }
+  const match = (p, f) => f === 'All' || p.groups.includes(f)
   const filtered = projects.filter(p => match(p, filter))
   const countFor = cat => projects.filter(p => match(p, cat)).length
 
