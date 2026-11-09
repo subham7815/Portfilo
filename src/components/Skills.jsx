@@ -109,7 +109,6 @@ const IN_ACTION = [
   { title: 'Book Management System', image: '/projects/book-management.svg', skills: ['ServiceNow', 'Business Rules', 'Client Scripts'], text: 'Tables, forms, Business Rules, Client Scripts and Service Catalog approval workflows.' },
   { title: 'File Explorer Application', image: '/projects/file-explorer.svg', skills: ['C++', 'OOP', 'File handling'], text: 'Create, delete, rename, copy and move operations with a modular OOP design.' },
   { title: 'TalentFlow, Mini ATS', image: '/projects/mini-ats.png', skills: ['React.js', 'MongoDB', 'CSS'], text: 'Hiring pipeline app with candidate stages and analytics.' },
-  { title: 'DexAI Platform', image: '/projects/dexai.png', skills: ['React.js', 'JavaScript', 'CSS'], text: 'Responsive AI product showcase with interactive workflow demos.' },
 ]
 
 const pad = n => String(n + 1).padStart(2, '0')

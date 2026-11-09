@@ -6,20 +6,6 @@ import './Work.css'
 
 export const projects = [
   {
-    id: '01',
-    groups: ['Full-Stack', 'AI & Tools'],
-    title: 'DexAI Platform',
-    category: 'AI / Full-Stack · 2026',
-    description: 'Modern AI product platform landing & showcase with responsive components, dark-mode glassmorphic styling, and interactive workflow demos.',
-    tags: ['TypeScript', 'React', 'CSS3', 'Vercel'],
-    image: '/projects/dexai.png',
-    liveUrl: 'https://github.com/subham7815/dexai-website',
-    githubUrl: 'https://github.com/subham7815/dexai-website',
-    accent: '#38bdf8',
-    color: '#071626',
-    featured: true,
-  },
-  {
     id: '02',
     groups: ['Full-Stack'],
     title: 'TalentFlow — Mini ATS',
@@ -59,7 +45,7 @@ export const projects = [
     githubUrl: 'https://github.com/subham7815/File-Explorer-Application',
     accent: '#f59e0b',
     color: '#1a1306',
-    featured: true,
+    featured: false,
   },
   {
     id: '05',
@@ -73,7 +59,7 @@ export const projects = [
     githubUrl: 'https://github.com/subham7815/InvoNexa',
     accent: '#60a5fa',
     color: '#0a101d',
-    featured: false,
+    featured: true,
   },
   {
     id: '06',
