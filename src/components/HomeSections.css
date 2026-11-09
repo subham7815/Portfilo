@@ -230,3 +230,80 @@
 @keyframes sp-puff { to { transform: scale(1.5); opacity: .4; } }
 @keyframes sp-shoot { 0% { opacity: 0; translate: 0 0; } 6% { opacity: 1; } 22% { opacity: 0; translate: -260px 96px; } 100% { opacity: 0; translate: -260px 96px; } }
 @media (prefers-reduced-motion: reduce) { .space * { animation: none !important; } }
+
+/* ===== Certificates: expanding panels ===== */
+.cert-acc { display: flex; gap: 10px; height: 520px; margin-bottom: 36px; }
+.cert-acc-panel {
+  position: relative; flex: 0 0 96px; min-width: 0; overflow: hidden; cursor: pointer;
+  border-radius: 12px; border: 1px solid rgba(255,255,255,.08);
+  background: var(--bg);
+  transition: flex-basis .6s cubic-bezier(.16,1,.3,1), background .4s ease;
+}
+.cert-acc-panel:not(.is-open):hover { filter: brightness(1.12); }
+.cert-acc-panel:focus-visible { outline: 2px solid var(--yellow, #ffd60a); outline-offset: 2px; }
+.cert-acc-panel.is-open { flex: 1 1 0; cursor: default; background: #0a0d20; border-color: rgba(255,255,255,.1); }
+
+.cert-acc-strip { position: absolute; inset: 0; display: flex; justify-content: center; padding-top: 26px; color: #fff; transition: opacity .25s; }
+.cert-acc-panel.is-open .cert-acc-strip { opacity: 0; pointer-events: none; }
+
+.cert-acc-open { position: absolute; inset: 0; padding: 36px 40px 30px; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity .3s; color: #fff; }
+.cert-acc-panel.is-open .cert-acc-open { opacity: 1; pointer-events: auto; transition-delay: .25s; }
+
+.cert-acc-top .cl { margin-bottom: 38px; }
+.cert-acc-name { font-size: .98rem; font-weight: 700; color: #fff; }
+.cert-acc-sub { margin-top: 6px; font-size: .84rem; font-weight: 500; color: #9a9cb0; max-width: 480px; }
+.cert-acc-quote { margin-top: auto; font-size: clamp(1.15rem, 1.9vw, 1.55rem); line-height: 1.4; font-weight: 500; color: #fff; max-width: 540px; }
+.cert-acc-who { display: inline-flex; align-items: center; gap: 12px; margin-top: 22px; padding: 0; background: none; border: 0; color: #9a9cb0; font: inherit; font-size: .82rem; font-weight: 500; cursor: zoom-in; text-align: left; }
+.cert-acc-who img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; object-position: top left; background: #fff; border: 1px solid rgba(255,255,255,.25); }
+.cert-acc-who:hover { color: #fff; }
+.cert-acc-link { align-self: flex-start; margin-top: 26px; padding: 0; background: none; border: 0; font: inherit; font-size: .85rem; font-weight: 500; color: #b9bbcc; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.cert-acc-link:hover { color: #fff; }
+
+/* logo marks */
+.cl { display: inline-flex; align-items: center; gap: 10px; line-height: 1; }
+.cl-img { display: block; }
+
+/* open panel: original colours on a white chip */
+.cl-open { background: #fff; border-radius: 8px; padding: 10px 16px; height: 44px; }
+.cl-open .cl-img { height: 22px; width: auto; }
+.cl-open.is-square .cl-img { height: 28px; }
+.cl-open .cl-extra { height: 20px; }
+.cl-open.cl-hr { color: #0e141e; gap: 8px; }
+.cl-open.cl-hr svg { width: 24px; height: 24px; color: #2ec866; }
+.cl-open.cl-hr b { font-weight: 800; font-size: 1rem; }
+
+/* strip: white marks, wide wordmarks read vertically */
+.cl-strip { color: #fff; }
+.cl-strip .cl-img { filter: brightness(0) invert(1); }
+.cl-strip.is-wide { position: relative; width: 28px; height: 170px; }
+.cl-strip.is-wide .cl-img { position: absolute; top: 50%; left: 50%; width: 140px; max-width: none; height: auto; transform: translate(-50%, -50%) rotate(90deg); }
+.cl-strip.is-square { flex-direction: column; gap: 14px; }
+.cl-strip.is-square .cl-img { width: 38px; height: auto; }
+.cl-strip .cl-extra { width: 26px !important; filter: none; }
+.cl-strip.cl-hr { flex-direction: column; gap: 10px; }
+.cl-strip.cl-hr svg { width: 34px; height: 34px; }
+.cl-strip.cl-hr b { writing-mode: vertical-rl; font-size: .8rem; letter-spacing: .06em; }
+
+@media (max-width: 768px) {
+  .cert-acc { flex-direction: column; height: auto; }
+  .cert-acc-panel { flex: 0 0 auto; height: 70px; transition: height .5s cubic-bezier(.16,1,.3,1); }
+  .cert-acc-panel.is-open { flex: 0 0 auto; height: 470px; }
+  .cert-acc-strip { justify-content: flex-start; align-items: center; padding: 0 22px; }
+  .cert-acc-open { padding: 24px 22px; }
+  .cert-acc-top .cl { margin-bottom: 22px; }
+  .cert-acc-strip .cl-strip { flex-direction: row; gap: 12px; }
+  .cl-strip.is-wide { width: auto; height: auto; }
+  .cl-strip.is-wide .cl-img { position: static; transform: none; width: auto; height: 18px; }
+  .cl-strip.is-square .cl-img { width: auto; height: 26px; }
+  .cl-strip.cl-hr b { writing-mode: horizontal-tb; font-size: .9rem; }
+  .cl-strip.cl-hr svg { width: 26px; height: 26px; }
+}
+
+/* certificate lightbox */
+.cert-lightbox { position: fixed; inset: 0; z-index: 9990; background: rgba(5,7,25,.82); display: flex; align-items: center; justify-content: center; padding: 20px; animation: certFade .2s ease; }
+@keyframes certFade { from { opacity: 0 } to { opacity: 1 } }
+.cert-lightbox-box { position: relative; max-width: 960px; width: 100%; max-height: 92vh; overflow: auto; background: #0b0d1c; border: 2px solid #fff; border-radius: 14px; padding: 14px; }
+.cert-lightbox-box img { display: block; width: 100%; height: auto; max-height: 76vh; object-fit: contain; border-radius: 8px; background: #fff; }
+.cert-lightbox-close { position: absolute; top: 8px; right: 8px; z-index: 2; width: 36px; height: 36px; border-radius: 50%; border: 0; background: var(--yellow, #ffd60a); color: #0d1240; font-size: 1.4rem; line-height: 1; cursor: pointer; }
+.cert-lightbox-cap { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px 6px 2px; color: #fff; }
+.cert-lightbox-cap a { display: inline-flex; align-items: center; gap: 6px; color: var(--yellow, #ffd60a); font-weight: 700; font-size: .9rem; }

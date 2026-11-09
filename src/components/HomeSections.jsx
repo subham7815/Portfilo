@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { createPortal } from 'react-dom'
 import { FaLaptopCode, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa'
 import {
   SiPython, SiJavascript, SiCplusplus, SiReact, SiFastapi, SiMongodb, SiMysql, SiPytorch,
@@ -164,15 +165,56 @@ const TOOLBOX = [
   { group: 'Tools', items: [[SiGit, 'Git', '#F05032'], [SiGithub, 'GitHub', '#111111'], [VscVscode, 'VS Code', '#007ACC']] },
 ]
 
+/* Official logo files live in /public/logos. `mode="strip"` renders them white (and
+   rotated for wide wordmarks) on the coloured strips; `mode="open"` keeps original colours on a white chip. */
+const LOGOS = {
+  oracle: { src: '/logos/oracle.svg', alt: 'Oracle', wide: true },
+  servicenow: { src: '/logos/servicenow.svg', alt: 'ServiceNow', wide: true },
+  deloitte: { src: '/logos/deloitte.svg', alt: 'Deloitte', wide: true },
+  ey: { src: '/logos/ey.svg', alt: 'EY', wide: false, extra: '/logos/microsoft.svg', extraAlt: 'Microsoft' },
+}
+
+function CertLogo({ kind, mode }) {
+  if (kind === 'hackerrank') {
+    return (
+      <span className={`cl cl-${mode} cl-hr`}>
+        <SiHackerrank />
+        {mode === 'open' && <b>HackerRank</b>}
+        {mode === 'strip' && <b>HackerRank</b>}
+      </span>
+    )
+  }
+  const l = LOGOS[kind]
+  if (!l) return null
+  return (
+    <span className={`cl cl-${mode} ${l.wide ? 'is-wide' : 'is-square'}`}>
+      <img src={l.src} alt={l.alt} className="cl-img" />
+      {l.extra && <img src={l.extra} alt={l.extraAlt} className="cl-img cl-extra" />}
+    </span>
+  )
+}
+
 const CERT_GALLERY = [
-  { img: '/certificates/oracle-agentic-ai.jpg', title: 'Oracle', sub: 'Agentic AI Foundations' },
-  { img: '/certificates/servicenow-csa.jpg', title: 'ServiceNow CSA', sub: 'System Administrator' },
-  { img: '/certificates/servicenow-cad.jpg', title: 'ServiceNow CAD', sub: 'Application Developer' },
-  { img: '/certificates/hackerrank-react.png', title: 'HackerRank', sub: 'Frontend (React)' },
+  { logo: 'oracle', img: '/certificates/oracle-agentic-ai.jpg', title: 'Oracle', sub: 'Agentic AI Certified Foundations Associate', bg: 'linear-gradient(180deg, #ff4d8d 0%, #ff2f4f 45%, #ff9a1f 100%)', date: 'Oct 2026 · Valid thru 2028', desc: 'Foundational mastery of agentic AI: autonomous agent design, multi-agent frameworks, tool use, memory and prompt engineering.' },
+  { logo: 'servicenow', img: '/certificates/servicenow-csa.jpg', title: 'ServiceNow CSA', sub: 'Certified System Administrator', bg: '#00232d', date: 'Jan 2026', desc: 'Platform administration, Flow Designer, CMDB, user security and business rules on the ServiceNow platform.' },
+  { logo: 'servicenow', img: '/certificates/servicenow-cad.jpg', title: 'ServiceNow CAD', sub: 'Certified Application Developer', bg: '#000', date: 'Jan 2026', desc: 'Scoped applications, script includes, GlideScript, REST integrations and ATF testing.' },
+  { logo: 'hackerrank', img: '/certificates/hackerrank-react.png', title: 'HackerRank', sub: 'Frontend Developer (React)', bg: 'linear-gradient(180deg, #0f8a4a 0%, #086b38 100%)', date: 'Certified', desc: 'Standardized assessment of React proficiency: components, state, custom hooks, context API and DOM performance.' },
+  { logo: 'deloitte', img: '/certificates/deloitte-analytics.jpg', title: 'Deloitte', sub: 'Data Analytics Job Simulation', bg: 'linear-gradient(180deg, #1c1c1c 0%, #000 100%)', date: 'Jul 2026', desc: 'Business data analysis, forensic technology investigation, dashboards and executive recommendations.' },
+  { logo: 'ey', img: '/certificates/ey-microsoft-ai.jpg', title: 'EY & Microsoft', sub: 'AI Skills Passport', bg: 'linear-gradient(135deg, #3b4bd8 0%, #1f2fcf 100%)', date: 'Certified', desc: 'Industry program covering AI principles, sustainability, innovation and Microsoft AI applications.' },
 ]
 
 export default function HomeSections() {
   const featured = projects.filter(p => p.featured).slice(0, 3)
+  const [activeCert, setActiveCert] = useState(0)
+  const [zoomCert, setZoomCert] = useState(null)
+  useEffect(() => {
+    if (!zoomCert) return
+    const onKey = e => { if (e.key === 'Escape') setZoomCert(null) }
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prev }
+  }, [zoomCert])
 
   return (
     <div className="home-sections">
@@ -324,15 +366,41 @@ export default function HomeSections() {
               </div>
               <Link to="/certificates" className="hs-link">See all certificates <FaArrowRight /></Link>
             </Reveal>
-            <div className="cert-gallery">
-              {CERT_GALLERY.map((c, i) => (
-                <Link to="/certificates" key={c.title} className={`cert-polaroid r${i % 4}`}>
-                  <Tape />
-                  <img src={c.img} alt={`${c.title} certificate`} loading="lazy" decoding="async" />
-                  <span className="cp-title">{c.title}</span>
-                  <span className="cp-sub">{c.sub}</span>
-                </Link>
-              ))}
+            <div className="cert-acc">
+              {CERT_GALLERY.map((c, i) => {
+                const open = i === activeCert
+                return (
+                  <div
+                    key={c.title}
+                    className={`cert-acc-panel ${open ? 'is-open' : ''}`}
+                    style={{ '--bg': c.bg }}
+                    onClick={() => setActiveCert(i)}
+                    role="button"
+                    tabIndex={open ? -1 : 0}
+                    aria-label={`Show ${c.title}`}
+                    onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') setActiveCert(i) }}
+                  >
+                    <div className="cert-acc-strip">
+                      <CertLogo kind={c.logo} mode="strip" />
+                    </div>
+                    <div className="cert-acc-open">
+                      <div className="cert-acc-top">
+                        <CertLogo kind={c.logo} mode="open" />
+                        <h3 className="cert-acc-name">{c.title}</h3>
+                        <p className="cert-acc-sub">{c.sub}</p>
+                      </div>
+                      <p className="cert-acc-quote">{c.desc}</p>
+                      <button type="button" className="cert-acc-who" tabIndex={open ? 0 : -1} onClick={() => setZoomCert(c)}>
+                        <img src={c.img} alt="" loading="lazy" decoding="async" />
+                        <span>Subham Kumar Nayak · {c.date}</span>
+                      </button>
+                      <button type="button" className="cert-acc-link" tabIndex={open ? 0 : -1} onClick={() => setZoomCert(c)}>
+                        View certificate &rarr;
+                      </button>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
             <Stagger className="issuer-grid">
               {ISSUERS.map(is => (
@@ -400,6 +468,19 @@ export default function HomeSections() {
           </Reveal>
         </div>
       </section>
+
+      {zoomCert && createPortal(
+        <div className="cert-lightbox" onClick={() => setZoomCert(null)} role="dialog" aria-modal="true">
+          <div className="cert-lightbox-box" onClick={e => e.stopPropagation()}>
+            <button type="button" className="cert-lightbox-close" onClick={() => setZoomCert(null)} aria-label="Close">×</button>
+            <img src={zoomCert.img} alt={`${zoomCert.title} certificate`} />
+            <div className="cert-lightbox-cap">
+              <b>{zoomCert.sub}</b>
+              <Link to="/certificates" onClick={() => setZoomCert(null)}>All certificates <FaArrowRight /></Link>
+            </div>
+          </div>
+        </div>
+      , document.body)}
     </div>
   )
 }
