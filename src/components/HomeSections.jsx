@@ -348,8 +348,8 @@ export default function HomeSections() {
         <section className="hs-block">
           <div className="container">
             <Reveal>
-              <span className="label">Toolbox</span>
-              <h2 className="hs-title">Skills from my resume</h2>
+              <span className="label">Tech Stack</span>
+              <h2 className="hs-title">Tools &amp; technologies I work with</h2>
             </Reveal>
             <div className="toolbox">
               {TOOLBOX.map(g => (
